@@ -1,0 +1,103 @@
+.gamesmain {
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidenav {
+  height: calc(100% - 80px);
+  width: 300px;
+  position: absolute;
+  top: 77px;
+  left: 0;
+  background-color: #303030;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 20;
+  padding-top: 20px;
+  border-right: 2px solid #717171;
+}
+
+/* Style for main nav items */
+.nav-item {
+  margin-bottom: 5px;
+}
+
+.nav-item a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #f1f1f1;
+  display: block;
+}
+
+.nav-item:not(.active) a:hover {
+  background-color: #575757;
+}
+
+.nav-item.active > a {
+  color: #202020;
+  background-color: #78e470;
+}
+
+/* Style for subtabs */
+.subtabs {
+  display: none;
+  padding-left: 20px;
+  background-color: #404040;
+}
+
+.subtabs.expanded {
+  display: block;
+}
+
+.subtabs a {
+  font-size: 16px !important;
+  padding: 6px 6px 6px 32px !important;
+  color: #d1d1d1 !important;
+}
+
+.subtabs a:hover {
+  background-color: #575757;
+}
+
+.subtabs a.active {
+  color: #202020 !important;
+  background-color: #78e470;
+}
+
+/* MATRIX */
+.matrix-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.matrix-table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.matrix-table td,
+.matrix-table th {
+  border: 1px solid #717171;
+  padding: 10px;
+  text-align: center;
+}
+
+.matrix-input {
+  width: 60px;
+  text-align: center;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.result-container {
+  margin-top: 20px;
+  color: #78e470;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      author="Hugh Cheng"
+      content="width=device-width, initial-scale=1.0"
+    />
+    {%- if title == "Home" -%}
+    <title>Hugh Cheng</title>
+    {%- else -%}
+    <title>{{title}} | Hugh Cheng</title>
+    {%- endif -%}
+    <link rel="stylesheet" href="{{root}}style.css" />
+    <link rel="stylesheet" href="{{root}}ballsStyle.css" />
+    <link rel="stylesheet" href="{{root}}games/gamesStyles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="/index.html"><em>hguh</em></a>
+      </div>
+      <nav class="nav">
+        {% for item in navbar %}
+        <a
+          class="{% if title == item.title %}active{% endif %}"
+          href="{{root}}{{item.href}}"
+          >{{item.title}}</a
+        >
+        {% endfor %}
+      </nav>
+    </header>
+    {{content}}
+    <footer class="footer">
+      <p>&copy; 2024 Hugh Cheng</p>
+    </footer>
+  </body>
+</html>

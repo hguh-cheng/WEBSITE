@@ -1,0 +1,88 @@
+body,
+html {
+  margin: 0;
+  font-family: "Montserrat";
+  color: #f1f1f1;
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center; /* Center horizontally */
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  background-color: #121212;
+  color: #f1f1f1;
+  border-bottom: 2px solid #717171;
+}
+.footer {
+  text-align: center;
+  padding: 10px;
+  border-top: 2px solid #717171;
+}
+.logo a {
+  font-family: "Roboto Serif", thin, italic;
+  font-size: 1.5em;
+  font-weight: italic;
+  color: #f1f1f1;
+  text-decoration: none;
+}
+.nav {
+  display: flex;
+  gap: 15px;
+}
+.nav a {
+  color: #f1f1f1;
+  text-decoration: none;
+  padding: 6px 8px;
+  margin: 0px 7px;
+  border-bottom: 4px solid #121212;
+}
+.nav a:hover {
+  color: #78e470;
+  transition: all 0.3s ease-in-out;
+}
+.nav .active {
+  color: #78e470;
+  border-bottom: 3px solid #78e470;
+}
+.content {
+  font-size: 11em;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 160px;
+}
+
+/*
+CSS DARK THEME PRIMARY COLORS 
+--color-primary-100: #3bdb41;
+--color-primary-200: #5ee059;
+--color-primary-300: #78e470;
+--color-primary-400: #8fe985;
+--color-primary-500: #a4ed99;
+--color-primary-600: #b7f1ae;
+CSS DARK THEME SURFACE COLORS
+--color-surface-100: #121212;
+--color-surface-200: #282828;
+--color-surface-300: #3f3f3f;
+--color-surface-400: #575757;
+--color-surface-500: #717171;
+--color-surface-600: #8b8b8b;
+CSS DARK THEME MIXED SURFACE COLORS
+--color-surface-mixed-100: #1a2318;
+--color-surface-mixed-200: #2f382d;
+--color-surface-mixed-300: #464d44;
+--color-surface-mixed-400: #5d645c;
+--color-surface-mixed-500: #767c75;
+--color-surface-mixed-600: #90958f;
+*/

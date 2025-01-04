@@ -1,0 +1,68 @@
+[
+  {
+    "href": "games/index.html",
+    "subtitle": "Welcome"
+  },
+  {
+    "href": "games/pure/index.html",
+    "subtitle": "Pure Equilibria",
+    "subtabs": [
+      {
+        "href": "games/pure/prisoners/index.html",
+        "subtitle": "Prisoner's Dilemma"
+      },
+      {
+        "href": "games/pure/bos/index.html",
+        "subtitle": "Coordination"
+      },
+      {
+        "href": "games/pure/guessTwoThirds/index.html",
+        "subtitle": "A Guessing Game"
+      },
+      {
+        "href": "games/pure/cournot/index.html",
+        "subtitle": "Cournot Duopoly"
+      }
+    ]
+  },
+  {
+    "href": "games/mixed/index.html",
+    "subtitle": "Mixed Equilibria",
+    "subtabs": [
+      {
+        "href": "games/mixed/matchingPennies/index.html",
+        "subtitle": "An Impossible Choice"
+      },
+      {
+        "href": "games/mixed/soccer/index.html",
+        "subtitle": "Penalty Shoot-out"
+      },
+      {
+        "href": "games/mixed/reportingACrime/index.html",
+        "subtitle": "Clone Wars"
+      }
+    ]
+  },
+  {
+    "href": "games/combinatorial/index.html",
+    "subtitle": "Combinatorial Games",
+    "subtabs": [
+      {
+        "href": "games/combinatorial/nim/index.html",
+        "subtitle": "Nim"
+      },
+      {
+        "href": "games/combinatorial/tabletop/index.html",
+        "subtitle": "Tabletop"
+      },
+      {
+        "href": "games/combinatorial/chomp/index.html",
+        "subtitle": "Chomp"
+      }
+    ]
+  },
+  {
+    "href": "games/nashCalc/index.html",
+    "subtitle": "Calculator"
+  }
+]

@@ -1,0 +1,29 @@
+---
+layout: layout.html
+title: title
+root: root
+---
+
+<nav class="sidenav">
+  {% for item in gamesnavbar %}
+  <div class="nav-item {% if page.url contains item.href %}active{% endif %}">
+    <a href="{{root}}{{item.href}}" class="nav-link">{{item.subtitle}}</a>
+    {% if item.subtabs %}
+    <div
+      class="subtabs {% if page.url contains item.href %}expanded{% endif %}"
+    >
+      {% for subtab in item.subtabs %}
+      <a
+        href="{{root}}{{subtab.href}}"
+        class="subtab-link {% if page.url == subtab.href %}active{% endif %}"
+      >
+        {{subtab.subtitle}}
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</nav>
+
+{{content}}

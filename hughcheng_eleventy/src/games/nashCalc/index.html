@@ -1,0 +1,22 @@
+---
+layout: gameslayout.html
+title: Games
+subtitle: Calculator
+root: ../../
+---
+
+<main>
+  <div class="matrix-container">
+    <h2>Enter Payoff Matrix</h2>
+    <table class="matrix-table" id="matrix-table"></table>
+    <div class="control-buttons">
+      <button onclick="addRow()">Add Row</button>
+      <button onclick="addColumn()">Add Column</button>
+      <button onclick="calculateNashEquilibria()">
+        Calculate Nash Equilibria
+      </button>
+    </div>
+    <div class="result-container" id="result-container"></div>
+  </div>
+</main>
+<script src="{{root}}games/calc.js"></script>
