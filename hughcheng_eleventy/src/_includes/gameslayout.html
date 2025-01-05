@@ -14,36 +14,25 @@ root: root
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
-              class="accordion-button {% if not page.url contains item.href %}collapsed{% endif %}"
+              class="accordion-button section-header"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapse-{{loop.index}}"
-              {%
-              if
-              page.url
-              contains
-              item.href
-              %}aria-expanded="true"
-              {%
-              else
-              %}aria-expanded="false"
-              {%
-              endif
-              %}
+              data-bs-target="#collapse-{{item.subtitle | slugify}}"
+              aria-expanded="false"
+              data-href="{{root}}{{item.href}}"
+              data-parent="#sidenavAccordion"
             >
               {{item.subtitle}}
             </button>
           </h2>
           <div
-            id="collapse-{{loop.index}}"
-            class="accordion-collapse collapse {% if page.url contains item.href %}show{% endif %}"
+            id="collapse-{{item.subtitle | slugify}}"
+            class="accordion-collapse collapse"
+            data-bs-parent="#sidenavAccordion"
           >
             <div class="accordion-body p-0">
               {% for subtab in item.subtabs %}
-              <a
-                href="{{root}}{{subtab.href}}"
-                class="nav-link {% if page.url == subtab.href %}active{% endif %}"
-              >
+              <a href="{{root}}{{subtab.href}}" class="nav-link">
                 {{subtab.subtitle}}
               </a>
               {% endfor %}
@@ -52,12 +41,7 @@ root: root
         </div>
         {% else %}
         <!-- Items without subtabs -->
-        <a
-          href="{{root}}{{item.href}}"
-          class="nav-link {% if page.url == item.href %}active{% endif %}"
-        >
-          {{item.subtitle}}
-        </a>
+        <a href="{{root}}{{item.href}}" class="nav-link"> {{item.subtitle}} </a>
         {% endif %} {% endfor %}
       </div>
     </nav>
@@ -66,3 +50,6 @@ root: root
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">{{content}}</main>
   </div>
 </div>
+
+<!-- Include the navigation JavaScript -->
+<script src="{{root}}games/gamesNav.js"></script>

@@ -2,10 +2,10 @@
 .sidenav {
   background-color: #303030;
   position: fixed;
-  top: 77px; /* Matches header height */
+  top: 77px;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 350px;
   padding-top: 20px;
   border-right: 2px solid #717171;
   z-index: 100;
@@ -14,9 +14,9 @@
 
 /* Main content area */
 .gamesmain {
-  margin-left: 300px; /* Match sidenav width */
+  margin-left: 350px;
   padding: 20px;
-  margin-top: 77px; /* Match header height */
+  margin-top: 77px;
 }
 
 /* Accordion customization */
@@ -28,13 +28,25 @@
 .accordion-button {
   background-color: #303030;
   color: #f1f1f1;
-  padding: 6px 6px 6px 32px;
+  padding: 6px 32px 6px 32px;
   font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-button::after {
+  margin-left: auto;
+  margin-right: 0;
+  filter: invert(1);
+  position: absolute;
+  right: 16px;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #78e470;
-  color: #202020;
+  background-color: #303030;
+  color: #f1f1f1;
 }
 
 .accordion-button:focus {
@@ -42,17 +54,28 @@
   border-color: transparent;
 }
 
-.accordion-button::after {
-  filter: invert(1);
+.accordion-button.active {
+  background-color: #78e470 !important;
+  color: #202020 !important;
 }
 
-.accordion-button:not(.collapsed)::after {
-  filter: none;
+.accordion-button.active::after {
+  filter: none !important;
+}
+
+/* Regular accordion button when expanded but not active */
+.accordion-button:not(.collapsed):not(.active) {
+  background-color: #303030;
+  color: #f1f1f1;
+}
+
+.accordion-button:not(.collapsed):not(.active)::after {
+  filter: invert(1);
 }
 
 /* Navigation links */
 .nav-link {
-  padding: 6px 6px 6px 32px;
+  padding: 6px 32px 6px 32px;
   color: #f1f1f1;
   font-size: 20px;
 }
@@ -63,8 +86,8 @@
 }
 
 .nav-link.active {
-  background-color: #78e470;
-  color: #202020;
+  background-color: #78e470 !important;
+  color: #202020 !important;
 }
 
 /* Subtabs */
@@ -85,6 +108,11 @@
 .accordion-body .nav-link.active {
   background-color: #78e470;
   color: #202020;
+}
+
+/* Prevent Bootstrap's color changes */
+.accordion-button:not(.collapsed) {
+  box-shadow: none !important;
 }
 
 /* Matrix styles */
