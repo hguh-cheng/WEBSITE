@@ -1,22 +1,21 @@
 body,
 html {
   margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrollbars affecting positioning */
   font-family: "Montserrat";
   color: #f1f1f1;
   background-color: #202020;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
 }
-main {
-  flex: 1;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: flex-start; /* Align content to the top */
-  align-items: center; /* Center horizontally */
-}
+
+/* Fixed header that spans full width */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; /* Bootstrap's navbar z-index */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,12 +23,34 @@ main {
   background-color: #121212;
   color: #f1f1f1;
   border-bottom: 2px solid #717171;
+  height: 77px; /* Fixed height to match your existing layout */
 }
+
+/* Main content wrapper */
+.wrapper {
+  margin-top: 77px; /* Same as header height */
+  min-height: calc(100vh - 77px);
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+}
+
 .footer {
   text-align: center;
   padding: 10px;
   border-top: 2px solid #717171;
+  background-color: #121212;
 }
+
 .logo a {
   font-family: "Roboto Serif", thin, italic;
   font-size: 1.5em;
@@ -37,10 +58,12 @@ main {
   color: #f1f1f1;
   text-decoration: none;
 }
+
 .nav {
   display: flex;
   gap: 15px;
 }
+
 .nav a {
   color: #f1f1f1;
   text-decoration: none;
@@ -48,21 +71,23 @@ main {
   margin: 0px 7px;
   border-bottom: 4px solid #121212;
 }
+
 .nav a:hover {
   color: #78e470;
   transition: all 0.3s ease-in-out;
 }
+
 .nav .active {
   color: #78e470;
   border-bottom: 3px solid #78e470;
 }
+
 .content {
   font-size: 11em;
   font-weight: bold;
   text-align: center;
   padding: 5px 160px;
 }
-
 /*
 CSS DARK THEME PRIMARY COLORS 
 --color-primary-100: #3bdb41;

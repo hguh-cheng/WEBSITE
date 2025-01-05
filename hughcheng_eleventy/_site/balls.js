@@ -29,11 +29,11 @@ function getTextShapePoints() {
 
   // Calculate offsets to center the text
   const textWidth = ctx.measureText(text).width;
-  const xOffset = (canvas.width - textWidth) / 2; // Ensure text is centered
+  const xOffset = canvas.width / 2;
   const yOffset = canvas.height / 2;
 
   // Draw the text
-  ctx.fillText(text, xOffset + textWidth / 2, yOffset);
+  ctx.fillText(text, xOffset, yOffset);
 
   // Extract pixel data from the canvas
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);

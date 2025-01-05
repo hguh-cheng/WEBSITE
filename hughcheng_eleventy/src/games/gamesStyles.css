@@ -1,73 +1,93 @@
-.gamesmain {
-  margin-left: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* Sidebar navigation */
 .sidenav {
-  height: calc(100% - 80px);
-  width: 300px;
-  position: absolute;
-  top: 77px;
-  left: 0;
   background-color: #303030;
-  overflow-x: hidden;
-  overflow-y: auto;
-  z-index: 20;
+  position: fixed;
+  top: 77px; /* Matches header height */
+  left: 0;
+  bottom: 0;
+  width: 300px;
   padding-top: 20px;
   border-right: 2px solid #717171;
+  z-index: 100;
+  overflow-y: auto;
 }
 
-/* Style for main nav items */
-.nav-item {
-  margin-bottom: 5px;
+/* Main content area */
+.gamesmain {
+  margin-left: 300px; /* Match sidenav width */
+  padding: 20px;
+  margin-top: 77px; /* Match header height */
 }
 
-.nav-item a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 20px;
+/* Accordion customization */
+.accordion-item {
+  background-color: #303030;
+  border: none;
+}
+
+.accordion-button {
+  background-color: #303030;
   color: #f1f1f1;
-  display: block;
+  padding: 6px 6px 6px 32px;
+  font-size: 20px;
 }
 
-.nav-item:not(.active) a:hover {
-  background-color: #575757;
-}
-
-.nav-item.active > a {
+.accordion-button:not(.collapsed) {
+  background-color: #78e470;
   color: #202020;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.accordion-button::after {
+  filter: invert(1);
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: none;
+}
+
+/* Navigation links */
+.nav-link {
+  padding: 6px 6px 6px 32px;
+  color: #f1f1f1;
+  font-size: 20px;
+}
+
+.nav-link:hover {
+  background-color: #575757;
+  color: #f1f1f1;
+}
+
+.nav-link.active {
   background-color: #78e470;
+  color: #202020;
 }
 
-/* Style for subtabs */
-.subtabs {
-  display: none;
-  padding-left: 20px;
-  background-color: #404040;
+/* Subtabs */
+.accordion-body {
+  padding: 0;
 }
 
-.subtabs.expanded {
-  display: block;
+.accordion-body .nav-link {
+  padding-left: 48px;
+  font-size: 16px;
+  color: #d1d1d1;
 }
 
-.subtabs a {
-  font-size: 16px !important;
-  padding: 6px 6px 6px 32px !important;
-  color: #d1d1d1 !important;
-}
-
-.subtabs a:hover {
+.accordion-body .nav-link:hover {
   background-color: #575757;
 }
 
-.subtabs a.active {
-  color: #202020 !important;
+.accordion-body .nav-link.active {
   background-color: #78e470;
+  color: #202020;
 }
 
-/* MATRIX */
+/* Matrix styles */
 .matrix-container {
   display: flex;
   flex-direction: column;

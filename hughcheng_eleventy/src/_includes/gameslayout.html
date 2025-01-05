@@ -4,26 +4,65 @@ title: title
 root: root
 ---
 
-<nav class="sidenav">
-  {% for item in gamesnavbar %}
-  <div class="nav-item {% if page.url contains item.href %}active{% endif %}">
-    <a href="{{root}}{{item.href}}" class="nav-link">{{item.subtitle}}</a>
-    {% if item.subtabs %}
-    <div
-      class="subtabs {% if page.url contains item.href %}expanded{% endif %}"
-    >
-      {% for subtab in item.subtabs %}
-      <a
-        href="{{root}}{{subtab.href}}"
-        class="subtab-link {% if page.url == subtab.href %}active{% endif %}"
-      >
-        {{subtab.subtitle}}
-      </a>
-      {% endfor %}
-    </div>
-    {% endif %}
-  </div>
-  {% endfor %}
-</nav>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block sidenav">
+      <div class="accordion" id="sidenavAccordion">
+        {% for item in gamesnavbar %} {% if item.subtabs %}
+        <!-- Items with subtabs -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button {% if not page.url contains item.href %}collapsed{% endif %}"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-{{loop.index}}"
+              {%
+              if
+              page.url
+              contains
+              item.href
+              %}aria-expanded="true"
+              {%
+              else
+              %}aria-expanded="false"
+              {%
+              endif
+              %}
+            >
+              {{item.subtitle}}
+            </button>
+          </h2>
+          <div
+            id="collapse-{{loop.index}}"
+            class="accordion-collapse collapse {% if page.url contains item.href %}show{% endif %}"
+          >
+            <div class="accordion-body p-0">
+              {% for subtab in item.subtabs %}
+              <a
+                href="{{root}}{{subtab.href}}"
+                class="nav-link {% if page.url == subtab.href %}active{% endif %}"
+              >
+                {{subtab.subtitle}}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <!-- Items without subtabs -->
+        <a
+          href="{{root}}{{item.href}}"
+          class="nav-link {% if page.url == item.href %}active{% endif %}"
+        >
+          {{item.subtitle}}
+        </a>
+        {% endif %} {% endfor %}
+      </div>
+    </nav>
 
-{{content}}
+    <!-- Main content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">{{content}}</main>
+  </div>
+</div>
