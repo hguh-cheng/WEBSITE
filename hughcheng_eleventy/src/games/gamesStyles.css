@@ -1,10 +1,10 @@
-/* Sidebar navigation */
+/* Base sidenav styles */
 .sidenav {
   background-color: #303030;
   position: fixed;
   top: 77px;
   left: 0;
-  bottom: 0;
+  bottom: 50px; /* Account for footer height */
   width: 350px;
   padding-top: 20px;
   border-right: 2px solid #717171;
@@ -16,103 +16,86 @@
 .gamesmain {
   margin-left: 350px;
   padding: 20px;
-  margin-top: 77px;
+  padding-bottom: 70px; /* Add extra padding to prevent content from being hidden behind footer */
+  height: calc(100vh - 127px); /* 77px header + 50px footer */
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-y: auto;
 }
 
-/* Accordion customization */
-.accordion-item {
-  background-color: #303030;
-  border: none;
+/* Container styles */
+.container-fluid {
+  height: 100%;
 }
 
-.accordion-button {
-  background-color: #303030;
-  color: #f1f1f1;
-  padding: 6px 32px 6px 32px;
-  font-size: 20px;
-  cursor: pointer;
-  position: relative;
-  justify-content: space-between;
-  align-items: center;
+/* Content styles */
+.gamesmain h1 {
+  font-size: 36px;
+  margin-bottom: 24px;
 }
 
-.accordion-button::after {
-  margin-left: auto;
-  margin-right: 0;
-  filter: invert(1);
-  position: absolute;
-  right: 16px;
+.gamesmain p {
+  margin-bottom: 16px;
 }
 
-.accordion-button:not(.collapsed) {
-  background-color: #303030;
-  color: #f1f1f1;
+.gamesmain form {
+  margin: 24px 0;
 }
 
-.accordion-button:focus {
-  box-shadow: none;
-  border-color: transparent;
+.gamesmain input {
+  font-size: 18px;
+  padding: 8px;
+  margin: 8px 0;
 }
 
-.accordion-button.active {
-  background-color: #78e470 !important;
-  color: #202020 !important;
+/* Navigation structure */
+.nav-section {
+  margin-bottom: 8px;
 }
 
-.accordion-button.active::after {
-  filter: none !important;
-}
-
-/* Regular accordion button when expanded but not active */
-.accordion-button:not(.collapsed):not(.active) {
-  background-color: #303030;
-  color: #f1f1f1;
-}
-
-.accordion-button:not(.collapsed):not(.active)::after {
-  filter: invert(1);
-}
-
-/* Navigation links */
-.nav-link {
-  padding: 6px 32px 6px 32px;
+.section-link {
+  display: block;
+  padding: 6px 32px;
   color: #f1f1f1;
   font-size: 20px;
+  text-decoration: none;
+  transition: background-color 0.2s;
 }
 
-.nav-link:hover {
+.section-link:hover {
   background-color: #575757;
   color: #f1f1f1;
+  text-decoration: none;
 }
 
-.nav-link.active {
-  background-color: #78e470 !important;
-  color: #202020 !important;
-}
-
-/* Subtabs */
-.accordion-body {
-  padding: 0;
-}
-
-.accordion-body .nav-link {
-  padding-left: 48px;
-  font-size: 16px;
-  color: #d1d1d1;
-}
-
-.accordion-body .nav-link:hover {
-  background-color: #575757;
-}
-
-.accordion-body .nav-link.active {
+.section-link.active {
   background-color: #78e470;
   color: #202020;
 }
 
-/* Prevent Bootstrap's color changes */
-.accordion-button:not(.collapsed) {
-  box-shadow: none !important;
+/* Subtabs styling */
+.subtabs {
+  padding-left: 16px;
+}
+
+.subtabs .nav-link {
+  display: block;
+  padding: 6px 32px;
+  color: #d1d1d1;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.subtabs .nav-link:hover {
+  background-color: #575757;
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+.subtabs .nav-link.active {
+  background-color: #78e470;
+  color: #202020;
 }
 
 /* Matrix styles */
@@ -148,4 +131,13 @@
 .result-container {
   margin-top: 20px;
   color: #78e470;
+}
+
+/* Make sure content column is full height */
+.row.justify-content-center {
+  height: 100%;
+}
+
+.col-md-8.col-lg-6 {
+  height: 100%;
 }

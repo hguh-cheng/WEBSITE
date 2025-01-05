@@ -8,46 +8,38 @@ root: root
   <div class="row">
     <!-- Sidebar -->
     <nav class="col-md-3 col-lg-2 d-md-block sidenav">
-      <div class="accordion" id="sidenavAccordion">
-        {% for item in gamesnavbar %} {% if item.subtabs %}
+      {% for item in gamesnavbar %}
+      <div class="nav-section">
+        {% if item.subtabs %}
         <!-- Items with subtabs -->
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button section-header"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse-{{item.subtitle | slugify}}"
-              aria-expanded="false"
-              data-href="{{root}}{{item.href}}"
-              data-parent="#sidenavAccordion"
-            >
-              {{item.subtitle}}
-            </button>
-          </h2>
-          <div
-            id="collapse-{{item.subtitle | slugify}}"
-            class="accordion-collapse collapse"
-            data-bs-parent="#sidenavAccordion"
+        <a href="{{root}}{{item.href}}" class="section-link"
+          >{{item.subtitle}}</a
+        >
+        <div class="subtabs">
+          {% for subtab in item.subtabs %}
+          <a href="{{root}}{{subtab.href}}" class="nav-link"
+            >{{subtab.subtitle}}</a
           >
-            <div class="accordion-body p-0">
-              {% for subtab in item.subtabs %}
-              <a href="{{root}}{{subtab.href}}" class="nav-link">
-                {{subtab.subtitle}}
-              </a>
-              {% endfor %}
-            </div>
-          </div>
+          {% endfor %}
         </div>
         {% else %}
         <!-- Items without subtabs -->
-        <a href="{{root}}{{item.href}}" class="nav-link"> {{item.subtitle}} </a>
-        {% endif %} {% endfor %}
+        <a href="{{root}}{{item.href}}" class="section-link"
+          >{{item.subtitle}}</a
+        >
+        {% endif %}
       </div>
+      {% endfor %}
     </nav>
 
     <!-- Main content -->
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">{{content}}</main>
+    <main class="gamesmain">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6">{{content}}</div>
+        </div>
+      </div>
+    </main>
   </div>
 </div>
 
