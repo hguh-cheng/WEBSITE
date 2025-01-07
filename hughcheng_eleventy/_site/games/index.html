@@ -8,7 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- Your custom CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../ballsStyle.css" />
     <link rel="stylesheet" href="../games/gamesStyles.css" />
@@ -21,6 +21,26 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
       rel="stylesheet"
     />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+          processEscapes: true,
+        },
+        options: {
+          ignoreHtmlClass: "tex2jax_ignore",
+          processHtmlClass: "tex2jax_process",
+        },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
     <header class="header">
@@ -162,51 +182,65 @@
   <h1>Welcome</h1>
   <br />
 
-  <!-- First reveal section -->
-  <div class="reveal-container">
-    <div class="content-section">
-      <p><b>Game theory</b> is the mathematical analysis of decisions.</p>
+  <p><b>Game theory</b> is the mathematical analysis of decisions.</p>
+
+  <p>
+    The goal of this website is to provide a brief exposition of game theory
+    through various examples, exercises, and interactives. If you have no prior
+    knowledge in game theory, then I'd recommend going through the
+    <b>Pure Equilibria</b> and <b>Mixed Equilibria</b> chapters in order.
+    However, the <b>Combinatorial Games</b> chapter is self-contained, so feel
+    free to skip to there first.
+  </p>
+  
+  <p>
+    Sometimes, there will be exercises that I encourage you to think about before moving on. So, some content will be initially hidden. Try revealing the remaining content on this page.
+  </p>
+
+  <div class="reveal-divider" data-target="section1">
+    <div class="reveal-text">Continue</div>
+    <div class="reveal-line"></div>
+    <div class="reveal-arrow"></div>
+  </div>
+  <div class="permanent-line"></div>
+
+  <div id="section1" class="content-section">
+    <p>You made it!</p>
+    <p>
+      There are sections with heavy notation, but for the most part, they are
+      not necessary to understand the bigger picture (but they do help formalize these concepts). Such sections will be
+      marked by notation boxes like this one.
+    </p>
+    <div class="notation-box">
+      <p>Symbolically,</p>
+      <ul>
+        <li>Let \( S \) denote the set of all sections in this website.</li>
+        <li>
+          Let \( N \subset S \) denote the subset of sections with heavy notation.
+        </li>
+        <li>
+          Let \( f : S \rightarrow \{0, 1\} \) be an indicator function such that
+          \[ f(s) = \begin{cases} 1 & \text{if } s \text{ is necessary for the big picture} \\ 0 & \text{otherwise} \end{cases} \]
+        </li>
+      </ul>
+      <p>Then, I claim that \( \forall s \in N, f(s) = 0. \)</p>
     </div>
 
-    <button class="continue-button">Continue Reading</button>
-    <div class="end-message" style="display: none">
-      You have reached the end of this section.
-    </div>
+    <p>
+      I got a little carried away with the creative writing aspect of this
+      project. Although the plot is unnecessary for understanding game theory,
+      you may find it helpful to motivate your learning.
+    </p>
+    <p>Enjoy!</p>
 
-    <div class="content-section">
-      <p>
-        The goal of this website is to provide a brief exposition of game theory
-        through various interactives. If you have no prior knowledge, then I'd
-        recommend going through the "pure" and "mixed" chapters in order.
-        However, the "combinatorial" chapter is self-contained, so feel free to
-        skip to there first.
-      </p>
+    <div class="next-chapter-container">
+      <span class="next-chapter-text">Next Chapter: Pure Equilibria</span>
+      <a href="../games/pure/" class="next-chapter-button">
+        <div class="next-chapter-arrow"></div>
+      </a>
     </div>
   </div>
-
-  <!-- Second reveal section -->
-  <div class="reveal-container">
-    <div class="content-section">
-      <p>
-        I got a little carried away with the creative writing aspect of this
-        project. Most of the plot is unnecessary for learning game theory, but
-        you may find it helpful to motivate your learning.
-      </p>
-    </div>
-
-    <button class="continue-button">Continue Reading</button>
-    <div class="end-message" style="display: none">
-      You have reached the end of this section.
-    </div>
-
-    <div class="content-section">
-      <p>
-        There are sections with heavy notation, but for the most part, they are
-        not necessary to understand the bigger picture.
-      </p>
-      <p>Enjoy!</p>
-    </div>
-  </div>
+  <br>
 </main>
 <script src="../games/reveal.js"></script>
 </div>
@@ -216,7 +250,8 @@
   </div>
 </div>
 
-<!-- Include the navigation JavaScript -->
+
+<script src="../games/reveal.js"></script>
 <script src="../games/gamesNav.js"></script>
 
       <footer class="footer">

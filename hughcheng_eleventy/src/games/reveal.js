@@ -1,37 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize each reveal container
-  document.querySelectorAll(".reveal-container").forEach((container) => {
-    let currentSection = 0;
-    const sections = container.querySelectorAll(".content-section");
-    const continueBtn = container.querySelector(".continue-button");
-    const endMessage = container.querySelector(".end-message");
-
-    // Show first section initially
-    if (sections.length > 0) {
-      sections[0].classList.add("visible");
-    }
-
-    // Update button/message visibility for this container
-    function updateControls() {
-      if (currentSection >= sections.length - 1) {
-        continueBtn.style.display = "none";
-        endMessage.style.display = "block";
-      } else {
-        continueBtn.style.display = "inline-block";
-        endMessage.style.display = "none";
-      }
-    }
-
-    // Handle continue button click for this container
-    continueBtn.addEventListener("click", function () {
-      currentSection++;
-      if (currentSection < sections.length) {
-        sections[currentSection].classList.add("visible");
-        updateControls();
-      }
+document.querySelectorAll('.reveal-divider').forEach(divider => {
+    const targetId = divider.getAttribute('data-target');
+    const target = document.getElementById(targetId);
+    const permanentLine = divider.nextElementSibling;
+    
+    if (!target) return;
+    
+    divider.addEventListener('click', function() {
+      if (divider.classList.contains('hiding')) return;
+      
+      // Start arrow rotation and fade out
+      divider.classList.add('clicked', 'hiding');
+      
+      // Wait for divider to fully disappear
+      setTimeout(() => {
+        divider.style.display = 'none';
+        
+        // Show permanent line and make it visible
+        permanentLine.style.display = 'block';
+        permanentLine.offsetHeight; // Trigger reflow
+        permanentLine.style.opacity = '1';
+        
+        // Make content visible but still transparent
+        target.classList.add('visible');
+        target.offsetHeight; // Trigger reflow
+        
+        // Animate content in together with line
+        target.classList.add('animate');
+      }, 300); // After divider fade-out completes
     });
-
-    // Initial controls update
-    updateControls();
   });
-});

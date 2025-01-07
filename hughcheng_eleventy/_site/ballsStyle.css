@@ -1,11 +1,11 @@
 .ball {
-  position: fixed; /* Fixed ensures alignment to viewport */
+  position: fixed;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
   width: 10px;
   height: 10px;
   pointer-events: none;
-  transform: translate(-50%, -50%); /* Center ball on exact x/y point */
+  transform: translate(-50%, -50%);
 }
 
 #canvas {
