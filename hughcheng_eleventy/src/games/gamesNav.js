@@ -7,20 +7,26 @@ document.addEventListener("DOMContentLoaded", function () {
         link.classList.remove("active");
       });
   
-      // First, try to match exact URLs for any nav link
+      // Handle both URLs ending in / and /index.html
       document.querySelectorAll(".nav-link, .section-link").forEach((link) => {
-        if (link.href === window.location.href) {
+        const linkPath = link.href.replace(window.location.origin, '');
+        const currentPathNormalized = currentPath.endsWith('/') ? currentPath + 'index.html' : currentPath;
+        const linkPathNormalized = linkPath.endsWith('/') ? linkPath + 'index.html' : linkPath;
+        
+        if (currentPathNormalized === linkPathNormalized) {
           link.classList.add("active");
         }
       });
   
-      // Then handle section highlighting - but only for index pages
+      // Then handle section highlighting - only for index pages or directory root
       const sections = ["pure", "mixed", "combinatorial"];
       for (const section of sections) {
+        const sectionPath = `/games/${section}/`;
         const sectionIndexPath = `/games/${section}/index.html`;
-        // Only highlight section if we're on its index page
-        if (currentPath.endsWith(sectionIndexPath)) {
-          const sectionLinks = document.querySelectorAll(`[href$="${sectionIndexPath}"]`);
+        
+        // Check both formats of the URL
+        if (currentPath === sectionPath || currentPath.endsWith(sectionIndexPath)) {
+          const sectionLinks = document.querySelectorAll(`[href*="${sectionPath}"]`);
           sectionLinks.forEach(link => {
             if (link.classList.contains('section-link')) {
               link.classList.add("active");

@@ -176,7 +176,79 @@
     <main class="gamesmain">
       <div class="container-fluid">
         <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-6"></div>
+          <div class="col-md-8 col-lg-6">
+<main>
+    <br />
+    <h1>Pure Equilibria</h1>
+    <br />
+  
+    <p>What is a game?</p>
+  
+    <p>
+        In this chapter, we analyze <b>strategic games with ordinal preferences,</b> which are games that contain the following elements:
+    </p>
+
+    <ul>
+        <li>a set of <b>players</b></li>
+        <li>a set of possible <b>actions</b> for each player</li>
+        <li><b>preferences</b> over the possible outcomes of the game for each player</li>
+    </ul>
+    
+    <p>
+        Outcomes of the game are referred to as <b>action profiles,</b> or the log of actions made by each player in a game. We can think of action profiles as functions that match each player to their action, often presented simply as an ordered list of all the actions.
+    </p>
+
+    <p>
+        For example, consider a game like rock paper scissors. There are two players in this game, each of which have a three possible actions (rock, paper, or scissors). Furthermore, they have preferences over the action profiles. For example,
+    </p>
+    <ul>
+        <li>Playing rock against scissors is better than playing scissors against rock.</li>
+        <li>Playing rock against rock is equally preferable as playing paper against paper.</li>
+        <li>Playing rock against scissors is better than playing rock against paper.</li>
+    </ul>
+    <p>etc. </p>
+    <p> To help encode these preferences, we use a payoff function to rank action profiles. We can suppose that one of the players, Alice, places a value of winning equal to \( 1 \), tying equal to \( 0 \), and losing equal to \( -1 \).</p>
+    <p> Note that the set of actions and preferences for each player do not have to be the same. It is possible that the other player, Bob, values winning the game much more than player 1, in which case Bob's payoff for winning might be equal to \( 2. \)</p>
+
+    
+    <div class="notation-box">
+        <p>Symbolically,</p>
+        <ul>
+          <li>Let \( i = 1, \dots, N \) denote the \( N \) players in the game.</li>
+          <li>
+            Let \( A_i \) denote a set of actions for each player \( i \).
+          </li>
+          <li>
+            An action profile \( a(i) \) is a function that maps each player \( i \) to an action. For shorthand, we often write \( a_i \) to denote player \( i \)'s action, and we express action profiles as an ordered list of actions \( a = (a_1, a_2, \dots, a_N) \).
+                <ul>
+                    <li>For convenience, we can write \( a_{-i} \) to denote every player's action in the action profile \( a \) <b>except</b> player \( i \)'s action.</li>
+                </ul>
+          </li>
+          <li>We define a payoff function \( u_i \) for each \( i \) that accepts an action profile and outputs a numeric payoff.</li>
+        </ul>
+        
+        <p>These variable names are somewhat standard and will be followed throughout the website.</p>
+
+        <p>In the example of rock paper scissors:</p>
+        <ul>
+            <li>We have player 1 and player 2. </li>
+            <li>We have \( A_1 = \{ \text{rock}_1, \text{paper}_1, \text{scissors}_1 \}, A_2 = \{ \text{rock}_2, \text{paper}_2, \text{scissors}_2 \} \).</li>
+            <li>We can say \( u_1 (\text{rock}_1, \text{scissors}_2) = 1, \) \( u_1 (\text{rock}_1, \text{paper}_2) = -1, \) and so on, as long as the numeric payoffs match the preferences. So, we must also have \( u_1 (\text{paper}_1, \text{scissors}_2) = -1. \)
+            </li>
+        </ul>
+    </div>
+
+    <p>In the coming chapters, we introduce the foundational notion of <b>Nash Equilibrium.</b></p>
+
+    <div class="next-chapter-container">
+    <span class="next-chapter-text">Next Chapter: Prisoner's Dilemma</span>
+    <a href="../../games/pure/prisoners/" class="next-chapter-button">
+        <div class="next-chapter-arrow"></div>
+    </a>
+    </div>
+    <br>
+  </main>
+  </div>
         </div>
       </div>
     </main>
