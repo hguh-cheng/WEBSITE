@@ -6,5 +6,54 @@ root: ../
 ---
 
 <main>
-  <p class="content">gaming</p>
+  <br />
+  <h1>Welcome</h1>
+  <br />
+
+  <!-- First reveal section -->
+  <div class="reveal-container">
+    <div class="content-section">
+      <p><b>Game theory</b> is the mathematical analysis of decisions.</p>
+    </div>
+
+    <button class="continue-button">Continue Reading</button>
+    <div class="end-message" style="display: none">
+      You have reached the end of this section.
+    </div>
+
+    <div class="content-section">
+      <p>
+        The goal of this website is to provide a brief exposition of game theory
+        through various interactives. If you have no prior knowledge, then I'd
+        recommend going through the "pure" and "mixed" chapters in order.
+        However, the "combinatorial" chapter is self-contained, so feel free to
+        skip to there first.
+      </p>
+    </div>
+  </div>
+
+  <!-- Second reveal section -->
+  <div class="reveal-container">
+    <div class="content-section">
+      <p>
+        I got a little carried away with the creative writing aspect of this
+        project. Most of the plot is unnecessary for learning game theory, but
+        you may find it helpful to motivate your learning.
+      </p>
+    </div>
+
+    <button class="continue-button">Continue Reading</button>
+    <div class="end-message" style="display: none">
+      You have reached the end of this section.
+    </div>
+
+    <div class="content-section">
+      <p>
+        There are sections with heavy notation, but for the most part, they are
+        not necessary to understand the bigger picture.
+      </p>
+      <p>Enjoy!</p>
+    </div>
+  </div>
 </main>
+<script src="{{root}}games/reveal.js"></script>
