@@ -23,17 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const numberValue = parseFloat(number);
       
-      // Check if the number is not an integer
-      if (!Number.isInteger(numberValue)) {
+      if (isNaN(numberValue)) {
         input.classList.add('invalid');
-        errorMessage.textContent = 'Please enter a whole number';
+        errorMessage.textContent = 'Please enter a valid number';
         submitButton.classList.add('disabled');
         return false;
       }
       
-      if (isNaN(numberValue) || numberValue < 0 || numberValue > 100) {
+      if (numberValue < 0 || numberValue > 1200) {
         input.classList.add('invalid');
-        errorMessage.textContent = 'Please enter a whole number between 0 and 100';
+        errorMessage.textContent = 'Please enter a number between 0 and 1200';
         submitButton.classList.add('disabled');
         return false;
       }
@@ -49,11 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
-      const number = input.value;
+      const number = parseFloat(input.value);
+      const isOptimal = Math.abs(number - 400) < 0.0001;  // Allow for small floating point differences
       
-      // Store the number for display
-      const chosenNumber = document.getElementById('chosen-number');
-      chosenNumber.textContent = number;
+      // Update all number displays
+      document.querySelectorAll('#chosen-number').forEach(element => {
+        element.textContent = number;
+      });
       
       // Add hiding class
       submitButton.classList.add('hiding');
@@ -76,6 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
         target.classList.add('visible');
         target.offsetHeight; // Trigger reflow
         target.classList.add('animate');
+        
+        // Show the appropriate content based on the choice
+        const optimalContent = document.getElementById('optimal-choice');
+        const suboptimalContent = document.getElementById('suboptimal-choice');
+        
+        if (isOptimal) {
+          optimalContent.style.display = 'block';
+          suboptimalContent.style.display = 'none';
+        } else {
+          optimalContent.style.display = 'none';
+          suboptimalContent.style.display = 'block';
+        }
       }, 300);
     });
     

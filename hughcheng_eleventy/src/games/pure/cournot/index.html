@@ -6,15 +6,127 @@ root: ../../../
 ---
 
 <main>
-    <br />
-    <h1>Cournot Duopoly</h1>
-    <br />
+  <br />
+  <h1>Cournot Duopoly</h1>
+  <br />
 
-    <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: Mixed Equilibria</span>
-    <a href="{{root}}games/mixed/" class="next-chapter-button">
-        <div class="next-chapter-arrow"></div>
-    </a>
+  <p>
+    The Third Great Sesame Street War is nearing an end. Cookie Monster’s
+    Fungeon is brimming to its capacity, and the war is straining his business.
+    It’s become evident that keeping everyone in the Fungeon is no longer
+    sustainable. As the first prisoners in the Fungeon, Cookie Monster selects
+    you and Bartholomew to be the first to taste freedom, but only after his
+    final challenge: revive his dying global cookie monopoly. You and
+    Bartholomew will compete to sell cookies. By the end of the challenge, you
+    will earn 100% of the revenue as thanks for revitalizing the cookieconomy.
+    You will be freed whatever happens, so as the capitalist you are, you only
+    care about the money.
+  </p>
+
+  <p>
+    You and Bartholomew only have one responsibility: decide how many cookies to
+    sell. However, if there are too many cookies circulating, the value of each
+    cookie decreases.
+  </p>
+
+  <p>
+    Specifically, if you sell $a$ cookies and Bartholomew sells $b$ cookies,
+    then the price of each cookie is $1200 - a - b$ dollars. (These are high-end
+    cookies, after all.) Thus, you will generate $$a(1200 - a - b)$$ dollars of
+    revenue.
+  </p>
+
+  <p>
+    As it turns out, customers are willing to buy fractional amounts of cookies,
+    so Cookie Monster allows you to pick any real number of cookies to sell. You
+    know Bartholomew, who has the same experience playing Cookie Monster’s
+    ridiculous games, will act shrewdly in his best interest.
+  </p>
+
+  <div class="choice-container">
+    <p>How many cookies will you sell?</p>
+    <div class="number-input-container">
+      <input
+        type="number"
+        id="numberInput"
+        min="0"
+        max="100"
+        required
+        placeholder="Enter a number (0-1200)"
+      />
+      <div class="error-message" id="error-message"></div>
+      <div class="reveal-divider" data-target="game-outcome">
+        <div class="reveal-text">Submit</div>
+        <div class="reveal-line"></div>
+        <div class="reveal-arrow"></div>
+      </div>
     </div>
-    <br>
-  </main>
+  </div>
+  <div class="permanent-line"></div>
+  <div id="game-outcome" class="content-section">
+    <div id="optimal-choice" class="choice-specific-content">
+      <p>
+        <span id="chosen-number" style="color: #78e470"></span> <span style="color: #78e470">cookies,</span> you
+        think aloud. A stroke of genius. To make sure it wasn’t a hallucination,
+        you decide to write your calculations down:
+      </p>
+    </div>
+    <div id="suboptimal-choice" class="choice-specific-content">
+      <p>
+        <span id="chosen-number" style="color: #78e470"></span> <span style="color: #78e470">cookies,</span> you
+        think aloud. Then, you quickly discard that idea, realizing its
+        foolishness.
+        <i
+          >I can't believe I ever thought that would be a good idea. It's like
+          someone's putting these ideas into my head, trying to control me,</i
+        >
+        Archibald thinks. For clarity, you write your calculations down:
+      </p>
+    </div>
+
+    <p>
+        We are trying to maximize $a(1200 - a - b) = -a^2 + (1200 - b) a.$ This is a quadratic with respect to $a.$ Recall that the maximum value of the function is located at the vertex of this parabola, or $$a = \frac{1200-b}{2}.$$ Alternatively, use the first partial derivative with respect to $a$ to identify the maximum.
+    </p>
+
+    <p>
+        Thus, Archibald’s best response to the action $b$ is the action $a = (1200 - b) / 2.$ Symmetrically, Bartholomew’s best response to the action $a$ is the action $b = (1200 - a) / 2.$ But remember that in a Nash Equilibrium, both players must play a best response to each other. So, we now have a system of equations! Solving, we obtain $a = b = 400.$
+    </p>
+
+    <p>
+        You name your mathematical discovery the <b>Cournot Duopoly</b> after your favorite theoretical heat engine (but you forget exactly how it’s spelled). For other examples of analyzing competitive duopoly through game theory, look up Bertrand’s model (where firms can set prices) or Stackelberg’s model (where firms don’t set quantities simultaneously).
+    </p>
+
+    <p>
+        But is there a way to make even more money?
+    </p>
+
+    
+  <div class="reveal-divider" data-target="section1">
+    <div class="reveal-text">More money?</div>
+    <div class="reveal-line"></div>
+    <div class="reveal-arrow"></div>
+  </div>
+  <div class="permanent-line"></div>
+
+  <div id="section1" class="content-section">
+    <p>You rush down the Fungeon labyrinth to tell Cookie Monster your choice, thinking about the money you’re about to make. If you both sell $400$ cookies, you’ll make $400(1200-800) = 160,000$ entire doubloons! Bartholomew is right on your tail. He’s certainly he’s reached the same conclusion. But as you navigate the brutalist floor plan together, an idea strikes you. After all, if you’ve learned anything from the Butter Cookie or Snickerdoodle game, it’s that you may have something to gain from coordination. You turn to your archnemesis.
+    </p>
+    <p><i>Bartholomew! What if, instead of maximizing our individual profits, we maximize our combined profit and split the bag?</i></p>
+    <p>You do the calculations quickly in your head. If you two agree to sell $x$ cookies in total, you’ll make $x(1200 - x)$ dollars combined. This is a quadratic which is maximized at $x = 600,$ making a total of $360,000$ dollars. That’s $180,000$ dollars for each of you, an entire $20,000$ more.
+    </p>
+    <p>
+        As the corrupt business owner that he is, Bartholomew agrees to establish a trust with you. Both of you tell Cookie Monster to sell $300$ cookies and escape the Fungeon together. As you and Bartholomew step outside to feel the sun on your skin for the first time in years, you celebrate your new friendship, profits, and knowledge of game theory. =
+    </p>
+    <p>
+        Unfortunately, you are immediately beamed up and abducted before everything fades to black.
+    </p>
+    <div class="next-chapter-container">
+      <span class="next-chapter-text">Next Chapter: Mixed Equilibria</span>
+      <a href="{{root}}games/mixed/" class="next-chapter-button">
+        <div class="next-chapter-arrow"></div>
+      </a>
+    </div>
+  </div>
+  </div>
+</main>
+<script src="{{root}}games/pure/cournot/numberProgress.js"></script>

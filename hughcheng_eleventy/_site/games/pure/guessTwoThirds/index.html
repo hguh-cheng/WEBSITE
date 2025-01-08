@@ -179,18 +179,36 @@
           <div class="col-md-8 col-lg-6">
 <main>
   <br />
-  <h1>Guess Two Thirds of the Average</h1>
+  <h1>A Guessing Game</h1>
   <br />
   <p>
-    How well can you predict the behavior of others? In the following game, you
-    and a crowd of other people can pick any integer from 0 to 100. The goal is
-    to be as close as possible to 2/3 of the average number picked.
+    Years pass. You are eventually joined by hundreds of other war prisoners.
+    <i>This Cookie Monster must be a maniac on the battlefield,</i> you think.
+    Glancing around the room, you judge each of your fellow inmates by their
+    faces, observing that some look like geniuses, but many look extremely
+    unintelligent.
+  </p>
+  <p>
+    Cookie Monster’s games are becoming more creative to accommodate the
+    multitude of players. In today's game, all of you can pick any integer from
+    0 to 100. Suppose you pick the integer $n.$ If the average number picked
+    among all players is equal to $a,$ then you will receive
+    $\frac{10}{|n-2a/3|}$ cookies. That is, the goal is to guess as close as
+    possible to 2/3 of the average number picked.
   </p>
 
   <div class="choice-container">
     <p>What number will you choose?</p>
     <div class="number-input-container">
-      <input type="number" id="numberInput" min="0" max="100" required placeholder="Enter a number (0-100)" />
+      <input
+        type="number"
+        id="numberInput"
+        min="0"
+        max="100"
+        required
+        placeholder="Enter an integer (0-100)"
+      />
+      <div class="error-message" id="error-message"></div>
       <div class="reveal-divider" data-target="game-outcome">
         <div class="reveal-text">Submit</div>
         <div class="reveal-line"></div>
@@ -201,8 +219,11 @@
   <div class="permanent-line"></div>
 
   <div id="game-outcome" class="content-section">
-    <p>You chose <span id="chosen-number" style="color: #78e470"></span>.</p>
-    
+    <p>
+      Congrats! You’ve won an astounding
+      <span id="chosen-number" style="color: #78e470"></span> cookies! The winning number was around 13.4, which I chose pretty arbitrarily.
+    </p>
+
     <p>
       What does this have to do with game theory? Well, after some thought, you
       may realize that it is impossible to win with any integer greater than 66,
@@ -210,31 +231,35 @@
       a number less than or equal to 66. However, given this assumption, it is
       impossible to win with any integer greater than 44. Thus, all rational
       players will play under 44. If we repeat this process indefinitely, the
-      only rational strategy will be to play the number 1.
+      only rational strategy will be to play the number 0.
     </p>
-    
+
     <p>
       This process is sometimes known as the
       <b>iterative deletion of dominated strategies.</b> While no strategy is
-      immediately always optimal given all possibilities, some strategies are
-      never optimal (e.g. 67-100). Thus, we can effectively rule these
-      "dominated strategies" out. Each time we do this, we assume an additional
-      layer of rationality among the participant pool.
+      unconditionally optimal, some strategies are never optimal (e.g. 67-100).
+      Thus, we can effectively rule these "dominated strategies" out. Each time
+      we do this, we assume an additional layer of rationality among the
+      participant pool.
     </p>
 
     <p>
       Importantly, our optimal solution of 0 relies on the fact that every
       player is perfectly rational as well. Experimentally, however, the degree
-      of rationality may vary depending on what setting this experiment is
-      conducted in. In an undergraduate game theory lecture at Yale, students
+      of rationality may vary depending on the setting in which this experiment
+      is conducted. In an undergraduate game theory lecture at Yale, students
       were asked to play this game directly after learning about strictly
       dominated strategies.
-      <a href="https://www.youtube.com/watch?v=qQ3kFydI_xQ&list=PL6EF60E1027E1A10B&index=2&t=3526s">
+      <a
+        href="https://www.youtube.com/watch?v=qQ3kFydI_xQ&list=PL6EF60E1027E1A10B&index=2&t=3526s"
+      >
         The winning number was around 9.
       </a>
       However, when the game was played among readers of an innocent-looking
       Danish newspaper,
-      <a href="https://politiken.dk/danmark/oekonomi/art5698526/G%C3%A6t-et-tal-konkurrence-afsl%C3%B8rer-at-vi-er-irrationelle">
+      <a
+        href="https://politiken.dk/danmark/oekonomi/art5698526/G%C3%A6t-et-tal-konkurrence-afsl%C3%B8rer-at-vi-er-irrationelle"
+      >
         the winning number was around 22.
       </a>
       It appears to be rational to assume that not all players will act
@@ -250,7 +275,8 @@
   </div>
   <br />
 </main>
-<script src="../../../games/numberProgress.js"></script></div>
+<script src="../../../games/pure/guessTwoThirds/numberProgress.js"></script>
+</div>
         </div>
       </div>
     </main>

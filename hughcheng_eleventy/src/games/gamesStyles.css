@@ -67,6 +67,13 @@
   margin-bottom: 0;
 }
 
+a {
+  color: #78e470;  /* Your site's green */
+  text-decoration: none;
+  transition: opacity 0.3s ease-in-out;
+  text-decoration: underline;
+}
+
 /* Navigation structure */
 .nav-section {
   margin-bottom: 8px;
@@ -343,7 +350,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   margin: 1rem 0;
 }
 
@@ -362,6 +368,26 @@
   border-color: #78e470;
 }
 
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.9em;
+  min-height: 1.2em;
+  margin-top: 0;
+}
+
+#numberInput.invalid {
+  border-color: #ff6b6b;
+}
+
+.reveal-divider.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.reveal-divider.disabled:hover {
+  opacity: 0.5;
+}
 /* calc styles */
 .matrix-container {
   display: flex;
