@@ -178,25 +178,187 @@
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6">
 <main>
-    <br />
-    <h1>Coordination</h1>
-    <br />
-    <p>The next day in Cookie Monster’s Fungeon, the rules of the game are different. Generous as he is, he’s identified your and Bartholomew’s favorite cookies: you crave snickerdoodles, and Bartholomew yearns for butter cookies.</p>
+  <br />
+  <h1>Coordination</h1>
+  <br />
+  <p>
+    The next day in Cookie Monster’s Fungeon, the rules of the game are
+    different. Generous as he is, he’s identified your and Bartholomew’s
+    favorite cookies: you crave butter cookies, and Bartholomew yearns for the
+    snickerdoodle.
+  </p>
 
-    <p>The rules of the game are simple; both you and Bartholomew must pick between <b>snickerdoodles</b> and <b>butter cookies.</b> If you both pick the same cookie, you will both receive one of that cookie. However, if you pick different cookies, neither of you will receive anything for today. Both of you would prefer to eat your favorite cookie, but would rather eat any cookie than no cookie.</p>
+  <p>
+    The rules of the game are simple; both you and Bartholomew must pick between
+    <b>butter cookies</b> or <b>snickerdoodles.</b> If you both pick the same
+    cookie, you will both receive one of that cookie. However, if you pick
+    different cookies, neither of you will receive anything for today. Both of
+    you would prefer to eat your favorite cookie, but would rather eat any
+    cookie than no cookie.
+  </p>
 
-    <p>Construct a payoff matrix that represents this game and find the game’s Nash equilibria.</p>
+  <p>
+    Construct a payoff matrix that represents this game and find the game’s Nash
+    equilibria.
+  </p>
 
+  <div class="reveal-divider" data-target="section1">
+    <div class="reveal-text">Reveal Answer</div>
+    <div class="reveal-line"></div>
+    <div class="reveal-arrow"></div>
+  </div>
+  <div class="permanent-line"></div>
 
+  <div id="section1" class="content-section">
+    <p>You draw the following matrix:</p>
 
-    <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: A Guessing Game</span>
-    <a href="../../../games/pure/guessTwoThirds/" class="next-chapter-button">
-        <div class="next-chapter-arrow"></div>
-    </a>
+    <div
+      class="pd-matrix-container"
+      style="--y-name-offset: 75%; --x-name-offset: 65%"
+    >
+      <div class="player-name vertical">Archibald</div>
+      <div class="player-name horizontal">Bartholomew</div>
+      <table class="pd-matrix">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Butter Cookie</th>
+            <th>Snickerdoodle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Butter Cookie</th>
+            <td>
+              <div class="outcome">2, 1</div>
+            </td>
+            <td>
+              <div class="outcome">0, 0</div>
+            </td>
+          </tr>
+          <tr>
+            <th>Snickerdoodle</th>
+            <td>
+              <div class="outcome">0, 0</div>
+            </td>
+            <td>
+              <div class="outcome">1, 2</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <br>
-  </main></div>
+
+    <p>
+      For our current purposes, the exact payoffs don’t matter, as they don’t
+      affect the player preferences. Just make sure that for each player,
+      receiving their favorite cookie rewards a higher payoff than the other
+      cookie, which rewards a higher payoff than receiving no cookie (and both
+      cases in which the player receives no cookie should reward the same
+      payoff).
+    </p>
+
+    <p>
+      The Nash equilibria of this game are when both players choose the same
+      cookie. For these outcomes, neither of you can strictly benefit from
+      deviating because you would receive no cookies.
+    </p>
+
+    <div class="choice-container">
+      <p>Which cookie will you choose, Archibald?</p>
+      <div class="choice-buttons">
+        <div
+          class="reveal-divider"
+          data-choice="butter-cookie"
+          data-target="choice-outcome"
+        >
+          <div class="reveal-text">Butter Cookie</div>
+          <div class="reveal-line"></div>
+          <div class="reveal-arrow"></div>
+        </div>
+        <div
+          class="reveal-divider"
+          data-choice="snickerdoodle"
+          data-target="choice-outcome"
+        >
+          <div class="reveal-text">Snickerdoodle</div>
+          <div class="reveal-line"></div>
+          <div class="reveal-arrow"></div>
+        </div>
+      </div>
+    </div>
+    <div class="permanent-line"></div>
+
+    <div id="choice-outcome" class="content-section">
+      <div id="initial-butter-cookie" class="choice-specific-content">
+        <p>
+          <span style="color: #78e470">Butter cookie.</span> How greedy.
+          Unfortunately for you, Bartholomew picked the snickerdoodle. Looks
+          like you’ll be going hungry today.
+        </p>
+      </div>
+      <div id="initial-snickerdoodle" class="choice-specific-content">
+        <p>
+          <span style="color: #78e470">Snickerdoodle.</span> How considerate.
+          Unfortunately for you, Bartholomew picked the butter cookie. Looks
+          like you’ll be going hungry today.
+        </p>
+      </div>
+
+      <p>
+        Neither strategy is strictly dominated, so it’s impossible to tell with
+        100% certainty what Bartholomew’s plan was beforehand. If only there was
+        a way to coordinate. Actually, why didn’t you? You should have just
+        talked to him. How foolish of you not to consider options that weren’t
+        presented!
+      </p>
+
+      <p>From this game, you discover two new facts about Nash equilibria:</p>
+      <ul>
+        <li>A game can have multiple Nash equilibria.</li>
+        <li>
+          It may be helpful to collude with other players to achieve a Nash
+          equilibrium. Such games are known as <b>coordination games.</b>
+        </li>
+      </ul>
+      <p></p>
+      <p>
+        In game theory, this game is known as the <b>Battle of the Sexes</b> (or
+        Bach or Stravinsky, another acronym for "BoS"), where the premise is
+        coordinating a date.
+      </p>
+
+      <p>
+        Coordination games may come in the form of colluding to determine a Nash
+        Equilibrium (like BoS). They may also come in the form of colluding to
+        settle on one Nash equilibrium over another.
+      </p>
+      <p>
+        For example, in the <b>Stag Hunt</b> game, a group of $N$ players each
+        have two options: hunt a stag, or hunt a hare. Hunting a hare rewards a
+        payoff of $1.$ Hunting a stag rewards a payoff of $2,$ but only if every
+        single player hunts the stag. Note that if there is a mix of stag
+        hunters and hare hunters, then all stag hunters would regret not hunting
+        a hare. So, the only Nash equilibria of this game are when all players
+        hunt the stag, or all players hunt a hare. With coordination, the
+        players can choose the more preferable Nash Equilibrium.
+      </p>
+
+      <div class="next-chapter-container">
+        <span class="next-chapter-text">Next Chapter: A Guessing Game</span>
+        <a
+          href="../../../games/pure/guessTwoThirds/"
+          class="next-chapter-button"
+        >
+          <div class="next-chapter-arrow"></div>
+        </a>
+      </div>
+    </div>
+    <br />
+  </div>
+</main>
+<script src="../../../games/choice.js"></script>
+</div>
         </div>
       </div>
     </main>

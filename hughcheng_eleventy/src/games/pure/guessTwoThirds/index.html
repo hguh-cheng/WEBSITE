@@ -12,17 +12,25 @@ root: ../../../
   <p>
     How well can you predict the behavior of others? In the following game, you
     and a crowd of other people can pick any integer from 0 to 100. The goal is
-    to be as close as possible to 2/3 of the average number picked. Try it out
-    yourself:
+    to be as close as possible to 2/3 of the average number picked.
   </p>
-  <form id="numberForm" onsubmit="submitNumber(event)">
-    <label for="numberInput">Enter a number (1-100):</label><br />
-    <input type="number" id="numberInput" min="1" max="100" required /><br />
-    <button type="submit">Submit</button>
-  </form>
-  <p id="result"></p>
 
-  <div id="hiddenContent">
+  <div class="choice-container">
+    <p>What number will you choose?</p>
+    <div class="number-input-container">
+      <input type="number" id="numberInput" min="0" max="100" required placeholder="Enter a number (0-100)" />
+      <div class="reveal-divider" data-target="game-outcome">
+        <div class="reveal-text">Submit</div>
+        <div class="reveal-line"></div>
+        <div class="reveal-arrow"></div>
+      </div>
+    </div>
+  </div>
+  <div class="permanent-line"></div>
+
+  <div id="game-outcome" class="content-section">
+    <p>You chose <span id="chosen-number" style="color: #78e470"></span>.</p>
+    
     <p>
       What does this have to do with game theory? Well, after some thought, you
       may realize that it is impossible to win with any integer greater than 66,
@@ -32,14 +40,16 @@ root: ../../../
       players will play under 44. If we repeat this process indefinitely, the
       only rational strategy will be to play the number 1.
     </p>
+    
     <p>
       This process is sometimes known as the
-      <b>iterative deletion of dominated strategies.</b> While no stratgy is
-      immediately always optimal given all possibilites, some strategies are
+      <b>iterative deletion of dominated strategies.</b> While no strategy is
+      immediately always optimal given all possibilities, some strategies are
       never optimal (e.g. 67-100). Thus, we can effectively rule these
       "dominated strategies" out. Each time we do this, we assume an additional
       layer of rationality among the participant pool.
     </p>
+
     <p>
       Importantly, our optimal solution of 0 relies on the fact that every
       player is perfectly rational as well. Experimentally, however, the degree
@@ -47,31 +57,25 @@ root: ../../../
       conducted in. In an undergraduate game theory lecture at Yale, students
       were asked to play this game directly after learning about strictly
       dominated strategies.
-      <a
-        href="https://www.youtube.com/watch?v=qQ3kFydI_xQ&list=PL6EF60E1027E1A10B&index=2&t=3526s"
-      >
+      <a href="https://www.youtube.com/watch?v=qQ3kFydI_xQ&list=PL6EF60E1027E1A10B&index=2&t=3526s">
         The winning number was around 9.
       </a>
       However, when the game was played among readers of an innocent-looking
       Danish newspaper,
-      <a
-        href="https://politiken.dk/danmark/oekonomi/art5698526/G%C3%A6t-et-tal-konkurrence-afsl%C3%B8rer-at-vi-er-irrationelle"
-      >
-        the winning number was around 22.</a
-      >
+      <a href="https://politiken.dk/danmark/oekonomi/art5698526/G%C3%A6t-et-tal-konkurrence-afsl%C3%B8rer-at-vi-er-irrationelle">
+        the winning number was around 22.
+      </a>
       It appears to be rational to assume that not all players will act
       rationally!
     </p>
-    <br />
-  </div>
 
-  <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: Cournot Duopoly</span>
-    <a href="{{root}}games/pure/cournot/" class="next-chapter-button">
+    <div class="next-chapter-container">
+      <span class="next-chapter-text">Next Chapter: Cournot Duopoly</span>
+      <a href="{{root}}games/pure/cournot/" class="next-chapter-button">
         <div class="next-chapter-arrow"></div>
-    </a>
+      </a>
     </div>
-    <br>
-
-  <script src="{{root}}games/guessTwoThirds/twoThirdsInput.js"></script>
+  </div>
+  <br />
 </main>
+<script src="{{root}}games/numberProgress.js"></script>
