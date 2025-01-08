@@ -6,15 +6,41 @@ root: ../../
 ---
 
 <main>
-    <br />
-    <h1>Combinatorial Games</h1>
-    <br />
-
-    <div class="next-chapter-container">
+  <br />
+  <h1>Combinatorial Games</h1>
+  <br />
+  <p>
+    This chapter hardly relates to any of the previous games. Rather, these
+    turn-based, zero-sum combinatorial games align more closely with what most
+    people would associate with games (the likes of Chess, Connect 4, etc.).
+    They are a subset of sequential games, but too complicated to analyze with a
+    sequential tree diagram.
+  </p>
+  <p>
+    Instead, consider <b>Zermelo’s Theorem</b> (the proof of which is beyond the
+    scope of this website), which states that either the first player can
+    guarantee a win, the second player can guarantee the win, or both players
+    can guarantee a draw for games satisfying the following criteria:
+  </p>
+  <ul>
+    <li>There are two players that take turns making moves.</li>
+    <li>There are finitely many possible moves.</li>
+    <li>
+      Each player has perfect knowledge of the other player’s possible moves.
+    </li>
+    <li>There is no element of chance.</li>
+    <li>The game must always terminate in a finite number of moves.</li>
+  </ul>
+  <p>
+    In the following games, we’ll try to analyze strategies for guaranteeing a
+    win or loss. I began dropping the plot, but hopefully your new acquired
+    knowledge will allow you to forgive me.
+  </p>
+  <div class="next-chapter-container">
     <span class="next-chapter-text">Next Chapter: Nim</span>
     <a href="{{root}}games/combinatorial/nim/" class="next-chapter-button">
-        <div class="next-chapter-arrow"></div>
+      <div class="next-chapter-arrow"></div>
     </a>
-    </div>
-    <br>
-  </main>
+  </div>
+  <br />
+</main>

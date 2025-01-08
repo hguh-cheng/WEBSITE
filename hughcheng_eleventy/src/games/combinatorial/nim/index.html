@@ -6,15 +6,78 @@ root: ../../../
 ---
 
 <main>
-    <br />
-    <h1>Nim</h1>
-    <br />
+  <br />
+  <h1>Nim</h1>
+  <br />
+  <p>
+    Archibald and Cookie Monster take turns removing 1, 2, 3, or 4 cookies from
+    a pile of 100 cookies. The player to remove the last cookie wins. Archibald
+    goes first. By Zermelo’s Theorem, one of these players can guarantee a win.
+    Identify which one and their winning strategy.
+  </p>
+  <div class="reveal-divider" data-target="section1">
+    <div class="reveal-text">Reveal Answer</div>
+    <div class="reveal-line"></div>
+    <div class="reveal-arrow"></div>
+  </div>
+  <div class="permanent-line"></div>
 
-    <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: Tabletop</span>
-    <a href="{{root}}games/combinatorial/tabletop/" class="next-chapter-button">
-        <div class="next-chapter-arrow"></div>
-    </a>
+  <div id="section1" class="content-section">
+    <p>
+      One approach is to consider the winning states of the game. Note that if
+      there is ever a position with 1, 2, 3, or 4 cookies, then the current
+      player’s turn will win. We can call these winning positions. However, if a
+      player has a position with 5 cookies, then any possible move will put
+      their opponent in a winning position, so we say that 5 cookies is a losing
+      position. Furthermore, note that with 6, 7, 8, or 9 cookies, the current
+      player can take away enough cookies to put their opponent in a losing
+      position.
+    </p>
+    <p>
+      We see that if the number of cookies is divisible by 5, then the current
+      player is losing; otherwise, the current player can win by making the
+      number of cookies divisible by 5. Since we start with 100 cookies, Cookie
+      Monster can guarantee a win.
+    </p>
+    <p>
+      In general, if we are allowed to remove 1 to n-1 cookies from the pile,
+      then a player can win if and only if the number of cookies in the pile is
+      not a multiple of n.
+    </p>
+    <p>
+      Now, consider a similar game. This time, there are two piles; one with 8
+      cookies and one with 10 cookies. On each turn, a player can remove any
+      positive integer number of cookies from exactly one of the piles. The
+      player who removes the last cookie wins. Once again, you go first. Who has
+      the winning strategy?
+    </p>
+
+    <div class="reveal-divider" data-target="section2">
+      <div class="reveal-text">Reveal Answer</div>
+      <div class="reveal-line"></div>
+      <div class="reveal-arrow"></div>
     </div>
-    <br>
-  </main>
+    <div class="permanent-line"></div>
+    <div id="section2" class="content-section">
+        <p>
+            The winning strategy utilizes a similar idea; this time, if the number of cookies in each pile is different, remove cookies from the larger pile until they contain the same number of cookies.
+        </p>
+        <p>
+            In general, a player can win the game if, on their turn, the number of cookies in each pile is different.
+        </p>
+        <p>
+            Nim is a generalized version of the above game, with any number of piles, each starting with any number of cookies. Try to identify the generalized winning strategy.
+        </p>
+      <div class="next-chapter-container">
+        <span class="next-chapter-text">Next Chapter: Tabletop</span>
+        <a
+          href="{{root}}games/combinatorial/tabletop/"
+          class="next-chapter-button"
+        >
+          <div class="next-chapter-arrow"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <br />
+</main>

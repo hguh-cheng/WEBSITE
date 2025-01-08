@@ -6,15 +6,87 @@ root: ../../../
 ---
 
 <main>
-    <br />
-    <h1>Clone Wars</h1>
-    <br />
+  <br />
+  <h1>Clone Wars</h1>
+  <br />
+
+  <p>
+    After a long day of penalty kicks, Beezleglorb seems satisfied with your
+    performance.
+  </p>
+  <p><i>Very well. Follow me.</i></p>
+  <p>
+    You soon enter a room with three identical clones of yourself (there are
+    four of you in total). So these are the sinister activities aboard this
+    vessel! They are using you as test subjects. You say hi to yourself three
+    times before each of you is whisked away into your own room where you can no
+    longer communicate with your clones.
+  </p>
+  <p>
+    The rules of this game are simple. You have two options: sacrifice or idle.
+    If all of you decide to idle, then none of you will receive any food for
+    today. However, if there are any sacrifices, then the sacrifices will all
+    receive 1 glorberry, and the idlers will all receive 2 glorberries.
+  </p>
+  <p>
+    You immediately begin analyzing the game for Nash equilibria. The scenario
+    with no sacrifices is not a Nash equilibrium, as you would prefer
+    sacrificing to receive 1 glorberry than idling and receiving 0 glorberries.
+    The scenario with more than one sacrifice is not a Nash equilibrium, as the
+    sacrifices would prefer to earn 2 glorberries by idling. You realize that
+    the only pure Nash equilibria occur when exactly one of you decides to
+    sacrifice.
+  </p>
+  <p>
+    However, as the others are clones of yourself, their thought processes are
+    identical to yours. You know that if you decide to sacrifice, they will all
+    sacrifice; and if you decide to idle, they will all idle. No matter what
+    happens, it will be impossible to achieve a pure Nash equilibrium.
+    Conveniently, you identify a small computer that allows you to simulate
+    flipping an unfair coin that lands on heads with any real probability
+    between 0 and 1 of your choosing.
+  </p>
+  <p>
+    This discovery inspires a thought: are there any mixed Nash equilibria of
+    this game where all of you use the same strategy?
+  </p>
+
+  <div class="reveal-divider" data-target="section1">
+    <div class="reveal-text">Reveal Answer</div>
+    <div class="reveal-line"></div>
+    <div class="reveal-arrow"></div>
+  </div>
+  <div class="permanent-line"></div>
+  <div id="section1" class="content-section">
+    <p>
+      As you learned from your tireless penalty kicking, then if a mixed
+      strategy exists, you should have no preferences over your possible
+      strategies. Let p be the probability that you choose to idle. Note that p
+      will be identical for all of your clones. So, we can write
+      $$U(\text{sacrifice}) = U(\text{idle})$$
+      $$1 = 0 \cdot P(\text{nobody sacrifices}) + 2 \cdot P(\text{at least one person sacrifices})$$
+      $$1 = 2(1-p^3)$$
+      $$p = \frac{1}{\sqrt[3]{2}} \approx 0.794.$$
+      
+      Simultaneously, all of your clones program your computer to flip a weighted coin that lands heads approximately 79.4% of the time. Yours lands tails, but luckily you are the only one. You receive your single glorberry, while all of your clones receive 2. What a lucky success.
+
+    </p>
+
+
+    <p>
+        The sheer impressiveness of your coordination triggers an involuntary chain reaction in Beezleglorb’s muscles that miraculously beam you and your clones back down to Earth. You strut home, eager to tell Bartholomew about your latest adventure. You finally make it back to your old house in what seems like decades. But as you wander your forgotten home, something catches your eye.
+    </p>
+
+    <p><i>Hang on,</i> you think. <i>That lamp looks a little weird.</i></p>
+
+    <p>Suddenly, you awake in a cold sweat in the basement of Cookie Monster’s Fungeon.</p>
 
     <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: Combinatorial Games</span>
-    <a href="{{root}}games/combinatorial/" class="next-chapter-button">
+      <span class="next-chapter-text">Next Chapter: Combinatorial Games</span>
+      <a href="{{root}}games/combinatorial/" class="next-chapter-button">
         <div class="next-chapter-arrow"></div>
-    </a>
+      </a>
     </div>
-    <br>
-  </main>
+  </div>
+  <br />
+</main>

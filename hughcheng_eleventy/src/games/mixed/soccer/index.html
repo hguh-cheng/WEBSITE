@@ -6,15 +6,198 @@ root: ../../../
 ---
 
 <main>
-    <br />
-    <h1>Penalty Shoot-out</h1>
-    <br />
+  <br />
+  <h1>Penalty Shoot-out</h1>
+  <br />
+  <p><i>Glooooooooooooooooooooooooooooooooooooooooorb.</i></p>
+  <p>
+    You wake up in a cold sweat, lying on the carpeted floor of the starship’s
+    rec room. It’s the next morning. Beezleglorb stands over you with a menacing
+    look. It seems like the fish fell out of your ear overnight, so you reinsert
+    it.
+  </p>
+  <p><i>Human. Play games with me.</i></p>
+  <p>
+    You follow Beezleglorb to a vast, open room, with nothing inside except a
+    ball and a football goalpost.
+  </p>
+  <p>
+    <i
+      >If you can score enough penalty kicks on me, I’ll consider setting you
+      free.</i
+    >
+  </p>
+  <p>
+    While most game theorists would be averse to physical activity, you have
+    experience from your days on the esteemed Roosevelt Franklin Elementary JV
+    soccer team. However, you have hardly any ball control (after all, 90% of
+    your minutes were on the bench). All you can decide is if you’d like to
+    roughly aim the ball towards the left or right side of the goal.
+  </p>
+  <p>
+    As you’re about to punt your first kick, you hear a little whisper from
+    inside your head. It’s not a hallucination–it’s the fish in your ear. Turns
+    out it’s been sentient this whole time, and it wants to let you in on
+    Beezleglorb’s soccer stats. Its motivations are unknown, but you trust in
+    the fish.
+  </p>
+  <p>
+    By analyzing your physique, it reveals the following payoff matrix for you:
+  </p>
 
-    <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: Clone Wars</span>
-    <a href="{{root}}games/mixed/reportingACrime/" class="next-chapter-button">
-        <div class="next-chapter-arrow"></div>
-    </a>
+  <div
+    class="pd-matrix-container"
+    style="--y-name-offset: 75%; --x-name-offset: 65%"
+  >
+    <div class="player-name vertical">Archibald</div>
+    <div class="player-name horizontal">Beezleglorb</div>
+    <table class="pd-matrix">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Dive Left</th>
+          <th>Dive Right</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Shoot Left</th>
+          <td>
+            <div class="outcome">40, 60</div>
+          </td>
+          <td>
+            <div class="outcome">90, 10</div>
+          </td>
+        </tr>
+        <tr>
+          <th>Shoot Right</th>
+          <td>
+            <div class="outcome">80, 20</div>
+          </td>
+          <td>
+            <div class="outcome">30, 70</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    In this matrix, your payoff is the probability (in percent) that you score a
+    goal, and Beezleglorb’s payoff is the probability that they successfully
+    block your shot.
+  </p>
+  <p>Try to interpret this payoff matrix and derive any Nash equilibria.</p>
+
+  <div class="reveal-divider" data-target="section1">
+    <div class="reveal-text">Reveal Answer</div>
+    <div class="reveal-line"></div>
+    <div class="reveal-arrow"></div>
+  </div>
+  <div class="permanent-line"></div>
+
+  <div id="section1" class="content-section">
+    <p>
+      Essentially, if Beezleglorb dives toward your shot placement, they have a
+      decent chance of saving it; otherwise, you have a pretty good chance of
+      scoring (although you might miss the goal entirely).
+    </p>
+    <p>
+      You realize that there are no pure Nash equilibria. However, with your
+      newly acquired knowledge from the previous game, you approach it with a
+      mixed angle.
+    </p>
+    <p>
+      Suppose there exists a mixed Nash equilibrium where you shoot left with
+      probability $p$ and right with probability $1-p,$ and Beezleglorb dives left
+      with probability $q$ and right with probability $1-q.$ If this were a true
+      equilibrium, then given Beezleglorb’s probability distribution, you should
+      be indifferent to either one of your strategies--otherwise, you would
+      simply assign 100% to the more favorable pure strategy, but we know that
+      there are no pure equilibria. So, all of your pure strategies should have
+      equal expected payoffs.
+    </p>
+    <p>We can thus write the following equation:
+        $$E_{\text{Archibald}}(\text{shoot left}, (q, 1-q)) = E_{\text{Archibald}}(\text{shoot right}, (q, 1-q))$$
+        $$40q + 90(1-q) = 80q+30(1-q)$$
+        $$q=0.6.$$
+    </p>
+    <p>
+        Using a symmetrical method, we find that $p = 0.5.$ We can even plug in these known values of $p$ and $q$ to evaluate that in this mixed equilibrium, you will score 60% of the time.
+    </p>
+    <p>
+        You mentally thank the fish for its help. Beezleglorb has just finished doing the same calculation to inform their decision. Conveniently, your calculations tell you that you should aim left or right with equal probability, so you can use the trusty coin method. It brings Beezleglorb PTSD. You score your first goal.
+    </p>
+    <p>
+        As an exercise, suppose your right foot got a little more accurate, such that the updated payoff matrix looks like this:
+    </p>
+
+    <div
+        class="pd-matrix-container"
+        style="--y-name-offset: 75%; --x-name-offset: 65%"
+    >
+        <div class="player-name vertical">Archibald</div>
+        <div class="player-name horizontal">Beezleglorb</div>
+        <table class="pd-matrix">
+        <thead>
+            <tr>
+            <th></th>
+            <th>Dive Left</th>
+            <th>Dive Right</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th>Shoot Left</th>
+            <td>
+                <div class="outcome">40, 60</div>
+            </td>
+            <td>
+                <div class="outcome">90, 10</div>
+            </td>
+            </tr>
+            <tr>
+            <th>Shoot Right</th>
+            <td>
+                <div class="outcome">85, 15</div>
+            </td>
+            <td>
+                <div class="outcome">30, 70</div>
+            </td>
+            </tr>
+        </tbody>
+        </table>
     </div>
-    <br>
-  </main>
+    <p>How does this affect the mixed Nash equilibrium? Should you play to your strengths and shoot more to the right?  </p>
+    <div class="reveal-divider" data-target="section2">
+        <div class="reveal-text">Reveal Answer</div>
+        <div class="reveal-line"></div>
+        <div class="reveal-arrow"></div>
+      </div>
+      <div class="permanent-line"></div>
+      <div id="section2" class="content-section">
+
+        <p>
+            Recalculating, we actually see that $p$ increases to 52.4% and $q$ decreases to 57.1%; that is, the new mixed equilibrium has you shooting more towards the left, and Beezleglorb diving more towards the right.
+        </p>
+        <p>
+            Your intuition may have told you that if your right foot improved, you should shoot more to your right; however, this isn’t necessarily true! Instead, Beezleglorb compensates for your improved right foot, by diving right more frequently, and you compensate for Beezleglorb’s dive frequency by shooting left more frequently.
+        </p>
+        <p>
+            If you’d like to further familiarize yourself with mixed equilibria, revisit the <a href="{{root}}games/pure/bos/">BoS game</a> to find a third equilibrium using mixed strategies. Does a mixed equilibrium exist for the <a href="{{root}}games/pure/prisoners/">Prisoner's Dilemma,</a> and why or why not?
+        </p>
+        <p>
+            For more work related to the specific penalty kick problem, <a href="https://pricetheory.uchicago.edu/levitt/Papers/ChiapporiGrosecloseLevitt2002.pdf">extensive research has already been done!</a>
+        </p>
+    <div class="next-chapter-container">
+      <span class="next-chapter-text">Next Chapter: Clone Wars</span>
+      <a
+        href="{{root}}games/mixed/reportingACrime/"
+        class="next-chapter-button"
+      >
+        <div class="next-chapter-arrow"></div>
+      </a>
+    </div>
+  </div>
+</div>
+  <br />
+</main>

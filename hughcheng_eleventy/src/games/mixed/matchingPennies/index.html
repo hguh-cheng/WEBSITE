@@ -6,15 +6,182 @@ root: ../../../
 ---
 
 <main>
-    <br />
-    <h1>An Impossible Choice</h1>
-    <br />
+  <br />
+  <h1>An Impossible Choice</h1>
+  <br />
 
-    <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: Penalty Shoot-Out</span>
-    <a href="{{root}}games/mixed/soccer/" class="next-chapter-button">
-        <div class="next-chapter-arrow"></div>
-    </a>
+  <p>You can barely make out your surroundings.</p>
+
+  <p><i>Where am I?</i> You ask the void.</p>
+  <p>
+    <i>Glooooooooooorb,</i> the alien replies. Something about your hopeless
+    expression reveals to it that you didn’t understand, so the alien sticks a
+    small fish in your ear and repeats themselves.
+  </p>
+  <p>
+    <i
+      >Hello, Archibald. I am Beezleglorb. If you wish to return home, play
+      games with me. You better be good at them, too.</i
+    >
+  </p>
+  <p>Good thing you’re no stranger to games.</p>
+  <p>
+    Beezleglorb lays out the rules of their first game. In front of both of you
+    are two buttons, colored neon brown and seafoam green. The room is
+    constructed in such a way so that neither of you can see which button the
+    opposing player presses. If you choose different colors, you owe Beezleglorb
+    one dollar. If you choose the same color, Beezleglorb owes you one glorbuck
+    (which converts to one US dollar).
+  </p>
+  <p>
+    Try to model the game with a payoff matrix and find any Nash equilibria.
+  </p>
+
+  <div class="reveal-divider" data-target="section1">
+    <div class="reveal-text">Reveal Answer</div>
+    <div class="reveal-line"></div>
+    <div class="reveal-arrow"></div>
+  </div>
+  <div class="permanent-line"></div>
+
+  <div id="section1" class="content-section">
+    <div
+      class="pd-matrix-container"
+      style="--y-name-offset: 75%; --x-name-offset: 65%"
+    >
+      <div class="player-name vertical">Archibald</div>
+      <div class="player-name horizontal">Beezleglorb</div>
+      <table class="pd-matrix">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Brown</th>
+            <th>Green</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Brown</th>
+            <td>
+              <div class="outcome">1, -1</div>
+            </td>
+            <td>
+              <div class="outcome">-1, 1</div>
+            </td>
+          </tr>
+          <tr>
+            <th>Green</th>
+            <td>
+              <div class="outcome">-1, 1</div>
+            </td>
+            <td>
+              <div class="outcome">1, -1</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <br>
-  </main>
+
+    <p>
+      After constructing the payoff matrix, you realize that with the tools
+      you’re aware of, you can’t find any Nash equilibria that may inform your
+      decision. Your best bet is to consider if Beezleglorb is more likely to
+      choose one color over the other. After closely examining their alien face,
+      however, you realize it’s indecipherable. It doesn’t really matter what
+      you do; Beezleglorb might as well be choosing their color at random.
+    </p>
+    <p>
+      So, your hand hovers over the green button. After all, seafoam green is
+      your favorite color. In fact, it’s all you’re wearing; your blazer,
+      trousers, rainboots, and monocles are all colored seafoam green.
+    </p>
+    <p>
+      But you get an eerie feeling that you’re being watched closely. It’s
+      Beezleglorb, who’s been analyzing your appearance as much as you’ve been
+      attempting to analyze theirs. And based on everything they know about you,
+      you’re probably going to pick seafoam green. As soon as you realize this,
+      Beezleglorb smiles. They’re reading you like a book, knowing you’re
+      planning to switch to neon brown last minute! You’re not sure how you
+      know, but every time you even think about switching buttons, Beezleglorb
+      can tell. No matter what, Beezleglorb will be one logical step ahead. It’s
+      hopeless.
+    </p>
+    <p>
+      However, you think of a brilliant strategy. You pick up the dollar coin
+      you were nearly going to kiss goodbye to. That’s right–your choice will be
+      decided by a coin toss. After all, if you don’t know what you’re doing,
+      then Beezleglorb can’t.
+    </p>
+    <p>
+      It’s a new option you’ve never even considered before. Your strategies
+      don’t have to be “pick seafoam green” or “pick neon brown.” A third option
+      can be “pick seafoam green or neon brown with 50% probability.” Actually,
+      there are infinitely many probabilistic distributions you can assign to
+      the two buttons.
+    </p>
+    <p>
+      How can we describe these options with Nash equilibria? Instead of
+      calculating preferences over the action profiles, we compare expected
+      payoffs. In this game, suppose both you and Beezleglorb “mix” your
+      strategies with probability 50%. Then, we have:
+    </p>
+    <ul>
+      <li>25% chance of (Green, Green), for a payoff of +1</li>
+      <li>25% chance of (Green, Brown), for a payoff of -1</li>
+      <li>25% chance of (Brown, Green), for a payoff of -1</li>
+      <li>25% chance of (Brown, Brown), for a payoff of +1</li>
+    </ul>
+    <p>
+      Which grants an expected payoff of $0.$ Symmetrically, Beezleglorb has an
+      expected payoff of $0.$ This expected payoff function is called the
+      <b>Bernoulli Payoff Function,</b> which we can treat very similarly to the
+      normal payoff function. Preferences over deterministic action profiles are
+      called Von Neumann-Morgenstern preferences (<b>vNM preferences</b> for
+      short).
+    </p>
+
+    <p>
+      Suppose you pick brown with probability $p$ and green with probability
+      $1-p,$ and Beezleglorb picks brown with probability $q$ and green with
+      probability $1-q.$ As Beezleglorb's $q$ varies, what are the best
+      responses for $p$?
+    </p>
+    <div class="reveal-divider" data-target="section2">
+      <div class="reveal-text">Reveal Answer</div>
+      <div class="reveal-line"></div>
+      <div class="reveal-arrow"></div>
+    </div>
+    <div class="permanent-line"></div>
+    <div id="section2" class="content-section">
+      <p>
+        Note that if $q \neq \frac{1}{2},$ which means that Beezleglorb has a
+        slight preference towards one of the colors, then your best response is
+        to pick the same color 100% of the time.
+      </p>
+      <p>
+        However, if $q = \frac{1}{2},$ then it doesn’t really matter what you
+        do, so any choice of $p$ is a best response.
+      </p>
+      <p>Thus, the only equilibrium is when both players assign equal probability to the colors. In this sense, there actually is a Nash Equilibrium. However, note that it is a weak Nash equilibrium, as any mixed strategy is the best response. This turns out to be true of any Nash equilibrium involving mixed strategies.</p>
+      <div class="notation-box">
+        <p>Symbolically, a mixed strategy Nash equilibrium is therefore defined as a mixed strategy profile $\alpha*$ such that for each player $i,$ we have $$U_i(\alpha_i*, \alpha_{-i}*) \ge U_i(\alpha_i, \alpha_{-i}*)$$ for all possible mixed strategies $\alpha_i.$ This is practically identical to the definition for a pure Nash equilibrium.
+        </p>
+    </div>
+        <p>
+            Mixed strategies have various interpretations. In this game, they can represent probabilistic distributions over pure strategies. They can also represent the distribution of pure strategies within a population.
+        </p>
+        <p>You glance up at Beezleglorb and flip the coin out of their sight. Frustrated, they select a button a random, and so do you. You win.
+        </p>
+        <p>
+            Beezleglorb demands thousands of rematches. Ultimately, you win approximately 50% of them. You will sleep well tonight with a net loss of around zero dollars.
+        </p>
+      <div class="next-chapter-container">
+        <span class="next-chapter-text">Next Chapter: Penalty Shoot-Out</span>
+        <a href="{{root}}games/mixed/soccer/" class="next-chapter-button">
+          <div class="next-chapter-arrow"></div>
+        </a>
+      </div>
+    </div>
+    <br />
+  </div>
+</main>
