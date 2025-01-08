@@ -182,14 +182,109 @@
     <h1>Prisoner's Dilemma</h1>
     <br />
 
+    <p>Close your eyes and imagine the following scenario.</p>
+
+    <p>You, Archibald the Unexceptional, and another prisoner of war, Bartholomew the Nothing-To-Write-Home-About, have just been captured in the Third Great Sesame Street War. It’s really not so bad in Cookie Monster’s Fungeon, except all you have to eat are cookies. Furthermore, Cookie Monster makes you play games to receive food every day. Are your eyes still closed? Good. The immersion is necessary.
+    </p>
+
+    <p>Today, the rules of the game are simple. You and Bartholomew both have two options: <b>cooperate</b> or <b>swindle.</b> If you both decide to cooperate, each of you receive 2 cookies. However, if you swindle and Bartholomew cooperates, then you receive 4 cookies and Bartholomew receives 0 (the opposite is true if Bartholomew swindles and you cooperate). If you both decide to swindle, each of you receive 1 cookie.
+    </p>
+
+    <p>
+        To better visualize the outcomes of the game, you invent the <b>payoff matrix:</b>
+    </p>
+
+    <div class="pd-matrix-container">
+    <div class="player-name vertical">Archibald</div>
+    <div class="player-name horizontal">Bartholomew</div>
+    <table class="pd-matrix">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Cooperate</th>
+            <th>Swindle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Cooperate</th>
+            <td>
+            <div class="outcome">2, 2</div>
+            </td>
+            <td>
+            <div class="outcome">0, 4</div>
+            </td>
+        </tr>
+        <tr>
+            <th>Swindle</th>
+            <td>
+            <div class="outcome">4, 0</div>
+            </td>
+            <td>
+            <div class="outcome">1, 1</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+      <p>
+        Conventionally, the payoff listed first belongs to the player who effectively chooses the row of the outcome (Archibald, in this example).
+    </p>
+
+    <div class="choice-container">
+        <p>What will you choose, Archibald?</p>
+        <div class="choice-buttons">
+            <div class="reveal-divider" data-choice="cooperate" data-target="choice-outcome">
+            <div class="reveal-text">Cooperate</div>
+            <div class="reveal-line"></div>
+            <div class="reveal-arrow"></div>
+            </div>
+            <div class="reveal-divider" data-choice="swindle" data-target="choice-outcome">
+            <div class="reveal-text">Swindle</div>
+            <div class="reveal-line"></div>
+            <div class="reveal-arrow"></div>
+            </div>
+        </div>
+        </div>
+        <div class="permanent-line"></div>
+        
+        <div id="choice-outcome" class="content-section">
+        <div id="initial-cooperate" class="choice-specific-content">
+            <p>
+                <span style="color: #78e470;">You decide to cooperate.</span> How virtuous. Lucky for you, so does Bartholomew. But, as you and Bartholomew each enjoy your double-cookie snack, you feel a deep sense of regret. <i>If I just decided to swindle, those cookies would be mine,</i> you think. You glance at Bartholomew, whose agonized physiognomy reveals that he shares your regret. You vow to never to make the same mistake again, for both your and Bartholomew’s sake.
+            </p>
+            <p>
+                But are there any possible outcomes in which neither you nor Bartholomew feel as though you could have done better? After some thought, you realize that if both you and Bartholomew choose to swindle, then neither of you could have done better by deviating individually.
+            </p>
+        </div>
+        <div id="initial-swindle" class="choice-specific-content">
+            <p><span style="color: #78e470;">You decide to steal,</span> you sneaky devil. Unfortunately, so does Bartholomew. But, as you and Bartholomew each somberly masticate your disappointing single cookies, you are fulfilled in knowing that you did the best you could given Bartholomew’s selfishness. Even if you both cooperated to receive more cookies, you would have regretted not swindling. You glance at Bartholomew, whose giddy face reveals that he shares your twisted glory.</p>
+        </div>
+        <p>
+            Paradoxically, this outcome is objectively worse than the outcome of mutual cooperation. Nonetheless, you have a feeling that it’s very important to analyze the outcomes of games where no player could have done better individually. You name your new concept the <b>Nash equilibrium,</b> fondly dedicated to your favorite basketball player.
+        </p>
+
+        <div class="notation-box">
+            <p>
+                We say that the <b>best response</b> for a player $i$ to the actions $a_{-i}*$ of other players as an action $a_i*$ such that for every other $a_i \in A_i,$ we have $$u_i(a_i*, a_{-i}*) \ge u_i(a_i, a_{-i}*).$$ We define the Nash equilibrium as an action profile $a_i*$ where every player $i$ plays a best response $a*_i$ to $a*_{-i}.$ 
+            </p>
+        </div>
+
+        <p>In fact, no matter what Bartholomew decided to do, swindling is always the best response. So, it makes sense that the Nash equilibrium occurs when both players play the unconditionally optimal strategy. In this case, we call cooperating a <b>strictly dominated strategy,</b> which means that there are no possible action profiles where it is the best response. However, finding equilibria won’t always be so obvious.
+        </p>
+        
+        <p>In game theory and popular culture, this game is known as the <b>Prisoner’s Dilemma.</b> In the original problem, a prison guard incentivizes two criminal partners to testify against each other with decreased sentence length as the payoff. Variations of the same fundamental game have widespread applications in the real world. A commonly known example is the <b>Arms Race,</b> where swindling is analogous to stockpiling nuclear warheads and cooperation is analogous to reducing one's supply of warheads.</p>
+
     <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: Coordination</span>
-    <a href="../../../games/pure/bos/" class="next-chapter-button">
-        <div class="next-chapter-arrow"></div>
-    </a>
+        <span class="next-chapter-text">Next Chapter: Coordination</span>
+        <a href="../../../games/pure/bos/" class="next-chapter-button">
+            <div class="next-chapter-arrow"></div>
+        </a>
+        </div>
     </div>
     <br>
-  </main></div>
+  </main>
+  <script src="../../../games/choice.js"></script></div>
         </div>
       </div>
     </main>

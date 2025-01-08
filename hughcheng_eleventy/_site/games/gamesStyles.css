@@ -191,6 +191,48 @@
   transform: rotate(180deg);
 }
 
+/* choice */
+.choice-container {
+  margin: 0;
+  text-align: center;
+}
+
+.choice-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.choice-button {
+  background-color: #303030;
+  color: #f1f1f1;
+  border: 2px solid #717171;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.choice-button:hover {
+  background-color: #78e470;
+  border-color: #78e470;
+  color: #202020;
+}
+
+.choice-button.selected {
+  background-color: #78e470;
+  border-color: #78e470;
+  color: #202020;
+}
+
+.choice-specific-content {
+  display: none;
+}
+
+.choice-specific-content.visible {
+  display: block;
+}
 
 /* next chapter */
 
@@ -238,7 +280,66 @@
   border-left-color: #202020;
 }
 
-/* Matrix styles */
+/* payoff matrix */
+.pd-matrix-container {
+  position: relative;
+  margin: 2rem auto;
+  padding-left: 2.5rem; 
+  padding-top: 2rem;
+}
+
+.pd-matrix {
+  border-collapse: collapse;
+  background-color: #303030;
+}
+
+.pd-matrix th,
+.pd-matrix td {
+  border: 1px solid #717171;
+  padding: 1rem 1.5rem;
+}
+
+.pd-matrix th {
+  font-weight: normal;
+}
+
+.pd-matrix thead th {
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 1rem;
+}
+
+.pd-matrix tbody th {
+  text-align: left;
+}
+
+.pd-matrix td {
+  text-align: center;
+}
+
+.pd-matrix .outcome {
+  margin: 0.25rem 0;
+}
+
+.player-name {
+  position: absolute;
+  color: #f1f1f1;
+}
+
+.player-name.vertical {
+  transform: rotate(-90deg);
+  transform-origin: left top;
+  left: 0;
+  top: 85%;
+}
+
+.player-name.horizontal {
+  top: 0;
+  left: 75%;
+  transform: translateX(-50%);
+}
+
+/* calc styles */
 .matrix-container {
   display: flex;
   flex-direction: column;
