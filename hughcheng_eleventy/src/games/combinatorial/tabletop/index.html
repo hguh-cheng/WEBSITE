@@ -6,15 +6,49 @@ root: ../../../
 ---
 
 <main>
-    <br />
-    <h1>Tabletop</h1>
-    <br />
+  <br />
+  <h1>Tabletop</h1>
+  <br />
+  <p>
+    Archibald and Cookie Monster take turns placing perfectly circular cookies on a
+    perfectly square table. Once placed, cookies cannot be moved. Cookies cannot
+    overlap with other cookies, and must fit fully on the table. The last player
+    to place a cookie on the table wins.
+  </p>
+  <p>
+    Note that we cannot apply Zermelo’s Theorem, because the number of possible
+    states of the board is infinite. If Archibald goes first, is there a winning
+    strategy?
+  </p>
 
+  <div class="reveal-divider" data-target="section1">
+    <div class="reveal-text">Continue</div>
+    <div class="reveal-line"></div>
+    <div class="reveal-arrow"></div>
+  </div>
+  <div class="permanent-line"></div>
+
+  <div id="section1" class="content-section">
+    <p>
+      We can apply a similar strategy as the previous games of mirroring the
+      opponent.
+    </p>
+    <p>
+      First, start by placing a cookie in the middle of the table. Then,
+      whatever Cookie Monster does, reflect his move across the center of the
+      board. Due to the perfect symmetry maintained by Archibald's moves, then if
+      Cookie Monster ever has a move to play, there will be an open spot on the
+      opposite side of the board. This is because once a cookie is placed in the
+      center, any two points that are reflected across the center have greater
+      distance than one diameter of a cookie, which makes it impossible for any
+      single cookie to cover two points that are reflected over the center.
+    </p>
     <div class="next-chapter-container">
-    <span class="next-chapter-text">Next Chapter: Chomp</span>
-    <a href="{{root}}games/combinatorial/chomp/" class="next-chapter-button">
+      <span class="next-chapter-text">Next Chapter: Chomp</span>
+      <a href="{{root}}games/combinatorial/chomp/" class="next-chapter-button">
         <div class="next-chapter-arrow"></div>
-    </a>
+      </a>
     </div>
-    <br>
-  </main>
+  </div>
+  <br />
+</main>

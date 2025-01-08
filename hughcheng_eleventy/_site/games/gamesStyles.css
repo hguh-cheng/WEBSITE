@@ -391,9 +391,9 @@ a {
 
 /* spoiler */
 .spoiler {
-  background-color: #202020;
-  border-radius: 3px;
-  padding: 0 4px;
+  background-color: #000000;
+  border-radius: 10px;
+  padding: 0 5px;
   cursor: pointer;
   position: relative;
   display: inline;
@@ -407,14 +407,8 @@ a {
 }
 
 .spoiler.revealed {
-  background-color: rgba(32, 32, 32, 0.5);
-  color: #f1f1f1;
+  color: #8b8b8b;
   user-select: text;
-}
-
-.spoiler.revealed::selection {
-  background-color: #78e470;
-  color: #202020;
 }
 
 /* calc styles */

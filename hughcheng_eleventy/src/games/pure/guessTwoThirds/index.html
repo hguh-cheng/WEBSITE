@@ -19,7 +19,7 @@ root: ../../../
   <p>
     Cookie Monster’s games are becoming more creative to accommodate the
     multitude of players. In today's game, all of you can pick any integer from
-    0 to 100. Suppose you pick the integer $n.$ If the average number picked
+    1 to 100. Suppose you pick the integer $n.$ If the average number picked
     among all players is equal to $a,$ then you will receive
     $\frac{10}{|n-2a/3|}$ cookies. That is, the goal is to guess as close as
     possible to 2/3 of the average number picked.
@@ -31,10 +31,10 @@ root: ../../../
       <input
         type="number"
         id="numberInput"
-        min="0"
+        min="1"
         max="100"
         required
-        placeholder="Enter an integer (0-100)"
+        placeholder="Enter an integer (1-100)"
       />
       <div class="error-message" id="error-message"></div>
       <div class="reveal-divider" data-target="game-outcome">
@@ -59,7 +59,11 @@ root: ../../../
       a number less than or equal to 66. However, given this assumption, it is
       impossible to win with any integer greater than 44. Thus, all rational
       players will play under 44. If we repeat this process indefinitely, the
-      only rational strategy will be to play the number 0.
+      only rational strategy will be to play the number 1.
+    </p>
+
+    <p>
+      Try to prove that the action profile when all players pick 1 is a Nash equilibrium.
     </p>
 
     <p>
@@ -72,7 +76,7 @@ root: ../../../
     </p>
 
     <p>
-      Importantly, our optimal solution of 0 relies on the fact that every
+      Importantly, our optimal solution of 1 relies on the fact that every
       player is perfectly rational as well. Experimentally, however, the degree
       of rationality may vary depending on the setting in which this experiment
       is conducted. In an undergraduate game theory lecture at Yale, students

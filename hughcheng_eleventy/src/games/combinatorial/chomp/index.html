@@ -6,8 +6,165 @@ root: ../../../
 ---
 
 <main>
-    <br />
-    <h1>Chomp</h1>
-    <br />
-    <br>
-  </main>
+  <br />
+  <h1>Chomp</h1>
+  <br />
+  <p>
+    In this game, Archibald and Cookie Monster play a game that involves his true
+    favorite dessert–a bar of chocolate. In the beginning of the game, the bar
+    of chocolate is a perfect rectangle. On any turn, a player picks a square of
+    the chocolate and eats all squares above and/or to the right of it. The
+    player who eats the bottom left square loses, as it is poisoned. For
+    example, the following is a valid first move.
+  </p>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+    <!-- First 3x4 grid -->
+    <g transform="translate(20,10)">
+      <!-- Brown background -->
+      <rect x="0" y="0" width="120" height="90" fill="#8B4513"/>
+      <!-- Red square -->
+      <rect x="0" y="60" width="30" height="30" fill="#ff6b6b"/>
+      <!-- Grid lines on top -->
+      <rect x="0" y="0" width="120" height="90" fill="none" stroke="#717171" stroke-width="2"/>
+      <line x1="30" y1="0" x2="30" y2="90" stroke="#717171" stroke-width="2"/>
+      <line x1="60" y1="0" x2="60" y2="90" stroke="#717171" stroke-width="2"/>
+      <line x1="90" y1="0" x2="90" y2="90" stroke="#717171" stroke-width="2"/>
+      <line x1="0" y1="30" x2="120" y2="30" stroke="#717171" stroke-width="2"/>
+      <line x1="0" y1="60" x2="120" y2="60" stroke="#717171" stroke-width="2"/>
+    </g>
+  
+    <!-- Rounded green arrow -->
+    <g transform="translate(160,45)">
+        <line x1="0" y1="0" x2="60" y2="0" stroke="#78e470" stroke-width="2" stroke-linecap="round"/>
+        <path d="M60,-8 Q75,0 60,8 L60,-8" fill="#78e470" stroke="#78e470" stroke-width="0"/>
+    </g>
+  
+    <!-- Second 3x4 grid with corner cut -->
+    <g transform="translate(260,10)">
+      <!-- Brown background first -->
+      <rect x="0" y="0" width="60" height="90" fill="#8B4513"/>
+      <rect x="0" y="60" width="120" height="30" fill="#8B4513"/>
+      <!-- Red square and dark corner -->
+      <rect x="0" y="60" width="30" height="30" fill="#ff6b6b"/>
+      <!-- Grid lines on top -->
+      <rect x="0" y="0" width="60" height="90" fill="none" stroke="#717171" stroke-width="2"/>
+      <rect x="0" y="60" width="120" height="30" fill="none" stroke="#717171" stroke-width="2"/>
+      <line x1="30" y1="0" x2="30" y2="90" stroke="#717171" stroke-width="2"/>
+      <line x1="90" y1="60" x2="90" y2="90" stroke="#717171" stroke-width="2"/>
+      <line x1="0" y1="30" x2="60" y2="30" stroke="#717171" stroke-width="2"/>
+    </g>
+  </svg>
+  <p>
+    Zermelo’s Theorem tells us that one player has a strategy to win. As a simple case, identify the winning player and strategy if the chocolate bar begins as a perfect square.
+    </p>
+    <div class="reveal-divider" data-target="section1">
+        <div class="reveal-text">Continue</div>
+        <div class="reveal-line"></div>
+        <div class="reveal-arrow"></div>
+      </div>
+      <div class="permanent-line"></div>
+    
+      <div id="section1" class="content-section">
+        <p>
+            The first player has the winning strategy by chomping out a square such that two equally long one-square spires are left:
+        </p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+            <!-- First 3x3 grid -->
+            <g transform="translate(20,10)">
+              <!-- Brown background -->
+              <rect x="0" y="0" width="90" height="90" fill="#8B4513"/>
+              <!-- Red square -->
+              <rect x="0" y="60" width="30" height="30" fill="#ff6b6b"/>
+              <!-- Grid lines on top -->
+              <rect x="0" y="0" width="90" height="90" fill="none" stroke="#717171" stroke-width="2"/>
+              <line x1="30" y1="0" x2="30" y2="90" stroke="#717171" stroke-width="2"/>
+              <line x1="60" y1="0" x2="60" y2="90" stroke="#717171" stroke-width="2"/>
+              <line x1="0" y1="30" x2="90" y2="30" stroke="#717171" stroke-width="2"/>
+              <line x1="0" y1="60" x2="90" y2="60" stroke="#717171" stroke-width="2"/>
+            </g>
+          
+            <!-- Rounded green arrow -->
+            <g transform="translate(160,45)">
+              <line x1="0" y1="0" x2="60" y2="0" stroke="#78e470" stroke-width="2" stroke-linecap="round"/>
+              <path d="M60,-8 Q75,0 60,8 L60,-8" fill="#78e470" stroke="#78e470" stroke-width="0"/>
+            </g>
+          
+            <!-- Second 3x3 grid with chomped corner -->
+            <g transform="translate(260,10)">
+              <!-- Brown background first -->
+              <rect x="0" y="0" width="30" height="90" fill="#8B4513"/>
+              <rect x="0" y="60" width="90" height="30" fill="#8B4513"/>
+              <!-- Red square -->
+              <rect x="0" y="60" width="30" height="30" fill="#ff6b6b"/>
+              <!-- Grid lines on top -->
+              <rect x="0" y="0" width="30" height="90" fill="none" stroke="#717171" stroke-width="2"/>
+              <rect x="0" y="60" width="90" height="30" fill="none" stroke="#717171" stroke-width="2"/>
+              <line x1="30" y1="0" x2="30" y2="90" stroke="#717171" stroke-width="2"/>
+              <line x1="60" y1="60" x2="60" y2="90" stroke="#717171" stroke-width="2"/>
+              <line x1="0" y1="30" x2="30" y2="30" stroke="#717171" stroke-width="2"/>
+            </g>
+          </svg>
+        <p>Note that this essentially reduces to the two-pile game of Nim.</p>
+        <p>It turns out that the general strategy for Chomp is unknown. Computers can play perfectly by brute force, but this is unfeasible for large chocolate bars as the number of possible game states grows exponentially.</p>
+        <p>However, it is possible to prove that player who chomps first always has a winning strategy on every nontrivial bar, even without knowing what the strategy is. Try it out yourself.</p>
+        <p>Hint: <span class="spoiler">Suppose by contradiction that on some starting bar, no matter what initial move the first player makes, the second player has a winning strategy.</span></p>
+        <div class="reveal-divider" data-target="section2">
+            <div class="reveal-text">Continue</div>
+            <div class="reveal-line"></div>
+            <div class="reveal-arrow"></div>
+          </div>
+          <div class="permanent-line"></div>
+        
+          <div id="section2" class="content-section">
+            <p>
+                Suppose by contradiction that on some starting bar, no matter what initial move the first player makes, the second player has a winning strategy. Then, consider the position in which the first player removes the single upper right square, like so:
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+                <!-- First 3x4 grid -->
+                <g transform="translate(20,10)">
+                  <!-- Brown background -->
+                  <rect x="0" y="0" width="120" height="90" fill="#8B4513"/>
+                  <!-- Red square -->
+                  <rect x="0" y="60" width="30" height="30" fill="#ff6b6b"/>
+                  <!-- Grid lines on top -->
+                  <rect x="0" y="0" width="120" height="90" fill="none" stroke="#717171" stroke-width="2"/>
+                  <line x1="30" y1="0" x2="30" y2="90" stroke="#717171" stroke-width="2"/>
+                  <line x1="60" y1="0" x2="60" y2="90" stroke="#717171" stroke-width="2"/>
+                  <line x1="90" y1="0" x2="90" y2="90" stroke="#717171" stroke-width="2"/>
+                  <line x1="0" y1="30" x2="120" y2="30" stroke="#717171" stroke-width="2"/>
+                  <line x1="0" y1="60" x2="120" y2="60" stroke="#717171" stroke-width="2"/>
+                </g>
+              
+                <!-- Rounded green arrow -->
+                <g transform="translate(160,45)">
+                    <line x1="0" y1="0" x2="60" y2="0" stroke="#78e470" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M60,-8 Q75,0 60,8 L60,-8" fill="#78e470" stroke="#78e470" stroke-width="0"/>
+                </g>
+              
+                <!-- Second 3x4 grid with just top-right corner removed -->
+                <g transform="translate(260,10)">
+                  <!-- Brown background first -->
+                  <rect x="0" y="0" width="90" height="90" fill="#8B4513"/>
+                  <rect x="90" y="30" width="30" height="60" fill="#8B4513"/>
+                  <!-- Red square -->
+                  <rect x="0" y="60" width="30" height="30" fill="#ff6b6b"/>
+                  <!-- Grid lines on top -->
+                  <rect x="0" y="0" width="90" height="90" fill="none" stroke="#717171" stroke-width="2"/>
+                  <rect x="0" y="30" width="120" height="60" fill="none" stroke="#717171" stroke-width="2"/>
+                  <line x1="30" y1="0" x2="30" y2="90" stroke="#717171" stroke-width="2"/>
+                  <line x1="60" y1="0" x2="60" y2="90" stroke="#717171" stroke-width="2"/>
+                  <line x1="90" y1="0" x2="90" y2="90" stroke="#717171" stroke-width="2"/>
+                  <line x1="0" y1="30" x2="120" y2="30" stroke="#717171" stroke-width="2"/>
+                  <line x1="0" y1="60" x2="120" y2="60" stroke="#717171" stroke-width="2"/>
+                </g>
+            </svg>
+            <p>
+                As the second player, observe that any possible move in this game state would have been possible to make as the first player. Since we assume that the second player must have a winning strategy as a follow-up to this move, then it must have been possible for the first player to win by using the second player’s strategy.
+            </p>
+            <p>
+                Thus, although we still don’t know what the strategy for the first player is, we have proven that it is always possible for them to guarantee a win. This argument is known as the <b>strategy stealing argument.</b> As an exercise, try to apply this argument to prove that the second player can never guarantee a win in tic-tac-toe.
+            </p>
+          </div>
+      </div>
+  <br />
+</main>

@@ -40,7 +40,7 @@ root: ../../../
       Monster can guarantee a win.
     </p>
     <p>
-      In general, if we are allowed to remove 1 to n-1 cookies from the pile,
+      In general, if we are allowed to remove 1 to $n-1$ cookies from the pile,
       then a player can win if and only if the number of cookies in the pile is
       not a multiple of n.
     </p>
@@ -48,8 +48,8 @@ root: ../../../
       Now, consider a similar game. This time, there are two piles; one with 8
       cookies and one with 10 cookies. On each turn, a player can remove any
       positive integer number of cookies from exactly one of the piles. The
-      player who removes the last cookie wins. Once again, you go first. Who has
-      the winning strategy?
+      player who removes the last cookie wins. Once again, Archibald goes first.
+      Who has the winning strategy?
     </p>
 
     <div class="reveal-divider" data-target="section2">
@@ -59,23 +59,87 @@ root: ../../../
     </div>
     <div class="permanent-line"></div>
     <div id="section2" class="content-section">
-        <p>
-            The winning strategy utilizes a similar idea; this time, if the number of cookies in each pile is different, remove cookies from the larger pile until they contain the same number of cookies.
-        </p>
-        <p>
-            In general, a player can win the game if, on their turn, the number of cookies in each pile is different.
-        </p>
-        <p>
-            Nim is a generalized version of the above game, with any number of piles, each starting with any number of cookies. Try to identify the generalized winning strategy.
-        </p>
-      <div class="next-chapter-container">
-        <span class="next-chapter-text">Next Chapter: Tabletop</span>
-        <a
-          href="{{root}}games/combinatorial/tabletop/"
-          class="next-chapter-button"
+      <p>
+        The winning strategy utilizes a similar idea; this time, if the number
+        of cookies in each pile is different, remove cookies from the larger
+        pile until they contain the same number of cookies.
+      </p>
+      <p>
+        In general, a player can win the game if, on their turn, the number of
+        cookies in each pile is different.
+      </p>
+      <p>
+        <b>Nim</b> is a generalized version of the above game, with any number
+        of piles, each starting with any number of cookies. Try to identify the
+        generalized winning strategy.
+      </p>
+      <p>
+        Hint:
+        <span class="spoiler"
+          >Consider the base 2 representations of the number of cookies in each
+          of the piles.</span
         >
-          <div class="next-chapter-arrow"></div>
-        </a>
+      </p>
+      <div class="reveal-divider" data-target="section3">
+        <div class="reveal-text">Reveal Answer</div>
+        <div class="reveal-line"></div>
+        <div class="reveal-arrow"></div>
+      </div>
+      <div class="permanent-line"></div>
+      <div id="section3" class="content-section">
+        <p>Consider the bitwise XOR of all sizes of the piles.</p>
+        <p>
+          If you’re unfamiliar with the bitwise XOR, here’s a brief
+          demonstration of how to calculate the 7 XOR 11 (for shorthand, we
+          write $7 \oplus 11$):
+        </p>
+        <ol>
+          <li>
+            Express $7$ and $11$ as binary, giving $0111$ and $1011$ (If
+            necessary, make them the same length by appending 0’s at the front
+            of the shorter number).
+          </li>
+          <li>
+            For each index, write a $1$ if the bits are different and a $0$ if
+            the bits are the same. So, we write $1100.$ This is equal to $10$ in
+            base $10,$ so we have $7 \oplus 11 = 10.$
+          </li>
+        </ol>
+        <p>
+          We claim that the game is in a winning position if and only if the XOR
+          of all pile sizes is not equal to $0.$ That is, if the XOR of all pile
+          sizes is not equal to $0,$ we can always remove cookies from a pile
+          such that it is equal to $0;$ otherwise, any move will make the XOR of
+          all pile sizes equal to $0.$ Indeed, the XOR of all pile sizes when
+          there are no cookies left (which is a losing game state) is equal to
+          $0.$
+        </p>
+        <p>
+            Note that XOR satisfies commutativity ($a \oplus b = b \oplus a$) and associativity ( $(a \oplus b) \oplus c = a \oplus (b \oplus c) $). Additionally, $a \oplus a = 0.$ 
+        </p>
+        <p>
+          For convenience, If there are $n$ piles, let $x_1, x_2, \dots, x_n$
+          denote the $n$ pile sizes before a player’s turn, and let $y_1, y_2, \dots y_n$
+          denote the $n$ pile sizes after the player’s turn. We have $x_i = y_i$ for
+          all piles $i$ except for one pile $k$ where $x_k > y_k.$
+        </p>
+        <p>
+            Define $s = x_1 \oplus x_2 \oplus \dots \oplus x_n$ and $t = y_1 \oplus y_2 \oplus \dots \oplus y_n.$ So, we have
+            $$\begin{aligned} t &= 0 \oplus t \\ &= s \oplus s \oplus t \\ &= s \oplus (x_1 \oplus x_2 \oplus \dots \oplus x_n) \oplus (y_1 \oplus y_2 \oplus \dots \oplus y_n) \\ &= s \oplus (x_1 \oplus y_1) \oplus (x_2 \oplus y_2) \oplus \dots \oplus (x_n \oplus y_n) \\ &= s \oplus x_k \oplus y_k. \\
+            \end{aligned}$$
+        </p>
+        <p>To prove that states with $s = 0$ are losing, we need to show that if $s = 0,$ then $t \neq 0.$ If $s = 0,$ then we in fact have $t = x_k \oplus y_k \neq 0$ since $x_k$ and $y_k$ must be different.</p>
+        <p>To prove that states with $s \neq 0$ are winning, we want to prove that there exists a certain $k$ such that subtracting some number of cookies from $x_k$ causes $t = 0.$ To find such a $k,$ consider the position $p$ of the leftmost bit of $s$ that is equal to $1.$ There must be a pile size $x_k$ such that the bit position $p$ is equal to $1.$ Then, consider $s \oplus x_k.$ Note that all bits to the left of position $p$ in $x_k$ remain unchanged, but the bit at position $p$ changes from a $1$ to a $0.$ Thus, we have $x_k > s \oplus x_k.$ So, making $y_k = s \oplus x_k$ is a valid move. However, note that $$\begin{aligned} t &= s \oplus x_k \oplus y_k \\ &= s \oplus x_k \oplus (s \oplus x_k) \\ &= 0, \end{aligned}$$ so there exists an optimal strategy in this position.
+            </p>
+        <div class="next-chapter-container">
+          <span class="next-chapter-text">Next Chapter: Tabletop</span>
+          <a
+            href="{{root}}games/combinatorial/tabletop/"
+            class="next-chapter-button"
+          >
+            <div class="next-chapter-arrow"></div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
