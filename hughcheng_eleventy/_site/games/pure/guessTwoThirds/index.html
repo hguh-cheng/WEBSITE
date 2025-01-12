@@ -61,12 +61,6 @@
           >Games</a
         >
         
-        <a
-          class=""
-          href="../../../music/index.html"
-          >Music</a
-        >
-        
       </nav>
     </header>
     <div class="wrapper">
@@ -191,7 +185,7 @@
   <p>
     Cookie Monster’s games are becoming more creative to accommodate the
     multitude of players. In today's game, all of you can pick any integer from
-    0 to 100. Suppose you pick the integer $n.$ If the average number picked
+    1 to 100. Suppose you pick the integer $n.$ If the average number picked
     among all players is equal to $a,$ then you will receive
     $\frac{10}{|n-2a/3|}$ cookies. That is, the goal is to guess as close as
     possible to 2/3 of the average number picked.
@@ -203,10 +197,10 @@
       <input
         type="number"
         id="numberInput"
-        min="0"
+        min="1"
         max="100"
         required
-        placeholder="Enter an integer (0-100)"
+        placeholder="Enter an integer (1-100)"
       />
       <div class="error-message" id="error-message"></div>
       <div class="reveal-divider" data-target="game-outcome">
@@ -221,30 +215,31 @@
   <div id="game-outcome" class="content-section">
     <p>
       Congrats! You’ve won an astounding
-      <span id="chosen-number" style="color: #78e470"></span> cookies! The winning number was around 13.4, which I chose pretty arbitrarily.
+      <span id="chosen-number" style="color: #78e470"></span> cookies! The
+      winning number was around 13.4, which I chose pretty arbitrarily.
     </p>
 
     <p>
-      What does this have to do with game theory? Well, after some thought, you
-      may realize that it is impossible to win with any integer greater than 66,
-      as all numbers are less than 100. Thus, every rational player should play
-      a number less than or equal to 66. However, given this assumption, it is
-      impossible to win with any integer greater than 44. Thus, all rational
-      players will play under 44. If we repeat this process indefinitely, the
-      only rational strategy will be to play the number 0.
+      Well, after some thought, you may realize that it is impossible to win
+      with any integer greater than 66, as all numbers are less than 100. Thus,
+      every rational player should play a number less than or equal to 66.
+      However, given this assumption, it is impossible to win with any integer
+      greater than 44. Thus, all rational players will play under 44. If we
+      repeat this process indefinitely, the only rational strategy will be to
+      play the number 1.
     </p>
 
     <p>
       This process is sometimes known as the
       <b>iterative deletion of dominated strategies.</b> While no strategy is
       unconditionally optimal, some strategies are never optimal (e.g. 67-100).
-      Thus, we can effectively rule these "dominated strategies" out. Each time
-      we do this, we assume an additional layer of rationality among the
-      participant pool.
+      Thus, we can effectively ignore these "dominated strategies" from the
+      possible strategy set. Each time we do this, we assume an additional layer
+      of rationality among the participant pool.
     </p>
 
     <p>
-      Importantly, our optimal solution of 0 relies on the fact that every
+      Importantly, our optimal solution of 1 relies on the fact that every
       player is perfectly rational as well. Experimentally, however, the degree
       of rationality may vary depending on the setting in which this experiment
       is conducted. In an undergraduate game theory lecture at Yale, students
@@ -263,7 +258,24 @@
         the winning number was around 22.
       </a>
       It appears to be rational to assume that not all players will act
-      rationally!
+      rationally.
+    </p>
+
+    <p>
+      You may also notice when deleting strategies, all removed strategies were
+      <b>"strictly dominated,"</b> which means that there would always be a
+      benefit to deviating from a strictly dominated strategy. Thus, by
+      continually deleting strictly dominated strategies, we never risk
+      excluding a Nash equilibrium. So, the solution where all players pick 1 is
+      a unique Nash equilibrium.
+    </p>
+
+    <p>
+      However, strategies can be <b>"weakly dominated,"</b> which means that it
+      is never better than any other strategy in every action profile, but it
+      may sometimes yield an equivalent payoff. Try to come up with an example
+      of where deletion of weakly dominated strategies excludes a Nash
+      equilibrium.
     </p>
 
     <div class="next-chapter-container">

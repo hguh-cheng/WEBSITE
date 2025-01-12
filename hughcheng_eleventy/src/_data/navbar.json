@@ -1,5 +1,4 @@
 [
   { "href": "index.html", "title": "Home" },
-  { "href": "games/index.html", "title": "Games" },
-  { "href": "music/index.html", "title": "Music" }
+  { "href": "games/index.html", "title": "Games" }
 ]
