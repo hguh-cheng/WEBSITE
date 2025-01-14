@@ -1,6 +1,6 @@
 ---
 layout: gameslayout.html
-title: Games
+title: Game Theory
 subtitle: Calculator
 root: ../../
 ---
@@ -12,11 +12,7 @@ root: ../../
   <div class="matrix-container">
     <table class="matrix-table" id="matrix-table"></table>
     <div class="control-buttons">
-      <button onclick="addRow()">Add Row</button>
-      <button onclick="addColumn()">Add Column</button>
-      <button onclick="calculateNashEquilibria()">
-        Calculate Nash Equilibria
-      </button>
+      <button class="calculate-btn" onclick="calculateNashEquilibria()">Calculate Nash Equilibria</button>
     </div>
     <div class="result-container" id="result-container"></div>
   </div>

@@ -411,6 +411,50 @@ a {
   user-select: text;
 }
 
+/* graph */
+.graph-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.line-segment {
+  cursor: pointer;
+  transition: stroke-width 0.2s;
+}
+
+.line-segment:hover {
+  stroke-width: 4;
+}
+
+.axis-label {
+  font-size: 50px;
+  fill: #78e470;
+}
+
+.grid-line {
+  stroke: white;
+  stroke-width: 2;
+}
+
+.axis {
+  stroke: #78e470;
+  stroke-width: 12;
+}
+
 /* calc styles */
 .matrix-container {
   display: flex;
@@ -452,4 +496,62 @@ a {
 
 .col-md-8.col-lg-6 {
   height: 100%;
+}
+.remove-btn, .add-btn {
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin-left: 5px;
+  line-height: 1;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  transition: background-color 0.2s ease;
+}
+
+.remove-btn {
+  background-color: #ff4444;
+}
+
+.remove-btn:hover {
+  background-color: #cc0000;
+}
+
+.add-btn {
+  background-color: #4CAF50;
+}
+
+.add-btn:hover {
+  background-color: #388E3C;
+}
+
+th {
+  position: relative;
+  padding-right: 25px; /* Make room for the remove button */
+}
+
+#matrix-table th {
+  min-width: 60px; /* Ensure enough space for the remove button */
+  text-align: center;
+}
+
+.calculate-btn {
+  background-color: transparent;
+  color: #78e470;
+  border: 2px solid #78e470;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calculate-btn:hover {
+  background-color: #78e470;
+  color: #202020;
 }

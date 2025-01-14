@@ -1,6 +1,6 @@
 ---
 layout: gameslayout.html
-title: Games
+title: Game Theory
 subtitle: Chomp
 root: ../../../
 ---
@@ -10,12 +10,14 @@ root: ../../../
   <h1>Chomp</h1>
   <br />
   <p>
-    In this game, Archibald and Cookie Monster play a game that involves his true
+    In this game, Archibald and Cookie Monster play a game that involves Cookie Monster's true
     favorite dessert–a bar of chocolate. In the beginning of the game, the bar
     of chocolate is a perfect rectangle. On any turn, a player picks a square of
-    the chocolate and eats all squares above and/or to the right of it. The
-    player who eats the bottom left square loses, as it is poisoned. For
-    example, the following is a valid first move.
+    the chocolate and eats all squares above and to the right of it. The
+    player who eats the bottom left square loses, as it is poisoned.
+  </p>
+  <p>
+    For example, the following is a valid first move, where player 1 chooses the square marked with an X and chomps everything above and to the right of it.
   </p>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
     <!-- First 3x4 grid -->
@@ -31,6 +33,8 @@ root: ../../../
       <line x1="90" y1="0" x2="90" y2="90" stroke="#717171" stroke-width="2"/>
       <line x1="0" y1="30" x2="120" y2="30" stroke="#717171" stroke-width="2"/>
       <line x1="0" y1="60" x2="120" y2="60" stroke="#717171" stroke-width="2"/>
+      <line x1="66" y1="36" x2="84" y2="54" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
+      <line x1="84" y1="36" x2="66" y2="54" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
     </g>
   
     <!-- Rounded green arrow -->
@@ -55,7 +59,7 @@ root: ../../../
     </g>
   </svg>
   <p>
-    Zermelo’s Theorem tells us that one player has a strategy to win. As a simple case, identify the winning player and strategy if the chocolate bar begins as a perfect square.
+    <a href="{{root}}games/combinatorial">Zermelo’s Theorem</a> tells us that one player has a strategy to win. As a simple case, if Archibald goes first, identify the winning player and strategy if the chocolate bar begins as a perfect square.
     </p>
     <div class="reveal-divider" data-target="section1">
         <div class="reveal-text">Continue</div>
@@ -66,7 +70,7 @@ root: ../../../
     
       <div id="section1" class="content-section">
         <p>
-            The first player has the winning strategy by chomping out a square such that two equally long one-square spires are left:
+            Archibald has the winning strategy by chomping out a square such that two equally long one-square-thick spires are left:
         </p>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
             <!-- First 3x3 grid -->
@@ -81,6 +85,8 @@ root: ../../../
               <line x1="60" y1="0" x2="60" y2="90" stroke="#717171" stroke-width="2"/>
               <line x1="0" y1="30" x2="90" y2="30" stroke="#717171" stroke-width="2"/>
               <line x1="0" y1="60" x2="90" y2="60" stroke="#717171" stroke-width="2"/>
+              <line x1="36" y1="36" x2="54" y2="54" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
+              <line x1="54" y1="36" x2="36" y2="54" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
             </g>
           
             <!-- Rounded green arrow -->
@@ -104,9 +110,9 @@ root: ../../../
               <line x1="0" y1="30" x2="30" y2="30" stroke="#717171" stroke-width="2"/>
             </g>
           </svg>
-        <p>Note that this essentially reduces to the two-pile game of Nim.</p>
+        <p>Note that this essentially reduces to a game of Nim with two equally-sized piles. So, Archibald can win from here by mirroring Cookie Monster.</p>
         <p>It turns out that the general strategy for Chomp is unknown. Computers can play perfectly by brute force, but this is unfeasible for large chocolate bars as the number of possible game states grows exponentially.</p>
-        <p>However, it is possible to prove that player who chomps first always has a winning strategy on every nontrivial bar, even without knowing what the strategy is. Try it out yourself.</p>
+        <p>However, it is possible to prove that the player who chomps first always has a winning strategy on every size of bar, even without knowing what the strategy is. Try it out yourself.</p>
         <p>Hint: <span class="spoiler">Suppose by contradiction that on some starting bar, no matter what initial move the first player makes, the second player has a winning strategy.</span></p>
         <div class="reveal-divider" data-target="section2">
             <div class="reveal-text">Continue</div>
@@ -117,7 +123,7 @@ root: ../../../
         
           <div id="section2" class="content-section">
             <p>
-                Suppose by contradiction that on some starting bar, no matter what initial move the first player makes, the second player has a winning strategy. Then, consider the position in which the first player removes the single upper right square, like so:
+                Suppose by contradiction that on some starting bar, no matter what initial move that Archibald makes, Cookie Monster has a winning strategy. Then, consider the position in which Archibald removes the single upper right square, like so:
             </p>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
                 <!-- First 3x4 grid -->
@@ -133,6 +139,8 @@ root: ../../../
                   <line x1="90" y1="0" x2="90" y2="90" stroke="#717171" stroke-width="2"/>
                   <line x1="0" y1="30" x2="120" y2="30" stroke="#717171" stroke-width="2"/>
                   <line x1="0" y1="60" x2="120" y2="60" stroke="#717171" stroke-width="2"/>
+                  <line x1="96" y1="6" x2="114" y2="24" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="114" y1="6" x2="96" y2="24" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
                 </g>
               
                 <!-- Rounded green arrow -->
@@ -159,10 +167,10 @@ root: ../../../
                 </g>
             </svg>
             <p>
-                As the second player, observe that any possible move in this game state would have been possible to make as the first player. Since we assume that the second player must have a winning strategy as a follow-up to this move, then it must have been possible for the first player to win by using the second player’s strategy.
+                Observe that any possible move from Cookie Monster in this game state would have been possible to make as Archibald. Since we assume that Cookie Monster must have a winning strategy as a follow-up to this move, then it must have been possible for Archibald to win by using Cookie Monster's strategy to begin with.
             </p>
             <p>
-                Thus, although we still don’t know what the strategy for the first player is, we have proven that it is always possible for them to guarantee a win. This argument is known as the <b>strategy stealing argument.</b> As an exercise, try to apply this argument to prove that the second player can never guarantee a win in tic-tac-toe.
+                Thus, although we still don’t know what the strategy for Archibald is, we have proven that it is always possible for him to guarantee a win. This argument is known as the <b>strategy stealing argument.</b> As an exercise, try to apply this argument to prove that the second player can never guarantee a win in tic-tac-toe.
             </p>
           </div>
       </div>

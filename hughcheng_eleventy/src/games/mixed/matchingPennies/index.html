@@ -1,6 +1,6 @@
 ---
 layout: gameslayout.html
-title: Games
+title: Game Theory
 subtitle: An Impossible Choice
 root: ../../../
 ---
@@ -108,7 +108,7 @@ root: ../../../
     </p>
     <p>
       However, you think of a brilliant strategy. You pick up the dollar coin
-      you were nearly going to kiss goodbye to. That’s right–your choice will be
+      you were nearly going to kiss goodbye to. That’s right—your choice will be
       decided by a coin toss. After all, if you don’t know what you’re doing,
       then Beezleglorb can’t.
     </p>
@@ -133,18 +133,23 @@ root: ../../../
     </ul>
     <p>
       Which grants an expected payoff of $0.$ Symmetrically, Beezleglorb has an
-      expected payoff of $0.$ This expected payoff function is called the
-      <b>Bernoulli Payoff Function,</b> which we can treat very similarly to the
-      normal payoff function. Preferences over deterministic action profiles are
-      called Von Neumann-Morgenstern preferences (<b>vNM preferences</b> for
-      short).
+      expected payoff of $0.$
+    </p>
+    <p>
+      When referring to mixed strategies, payoff functions involving expected
+      value are technically called
+      <b>Bernoulli Payoff Functions.</b> Preferences over deterministic action
+      profiles are called Von Neumann-Morgenstern preferences (<b
+        >vNM preferences</b
+      >
+      for short). These behave in the same way that payoff functions and
+      preferences behave for pure strategies; after all, pure strategies are
+      just mixed strategies with 100% probability assigned to one of the
+      options. So, we'll just refer to them as payoff functions and preferences.
     </p>
 
     <p>
-      Suppose you pick brown with probability $p$ and green with probability
-      $1-p,$ and Beezleglorb picks brown with probability $q$ and green with
-      probability $1-q.$ As Beezleglorb's $q$ varies, what are the best
-      responses for $p$?
+      Suppose you pick brown with probability $p$ and green with probability $1-p,$ and Beezleglorb picks brown with probability $q$ and green with probability $1-q.$ Try to analyze these new probabilistic strategies by plotting some best response curves; that is, for every value of $q,$ graph the values of $p$ that are optimal, and vice versa.
     </p>
     <div class="reveal-divider" data-target="section2">
       <div class="reveal-text">Reveal Answer</div>
@@ -153,28 +158,125 @@ root: ../../../
     </div>
     <div class="permanent-line"></div>
     <div id="section2" class="content-section">
-      <p>
-        Note that if $q \neq \frac{1}{2},$ which means that Beezleglorb has a
-        slight preference towards one of the colors, then your best response is
-        to pick the same color 100% of the time.
-      </p>
-      <p>
-        However, if $q = \frac{1}{2},$ then it doesn’t really matter what you
-        do, so any choice of $p$ is a best response.
-      </p>
-      <p>Thus, the only equilibrium is when both players assign equal probability to the colors. In this sense, there actually is a Nash Equilibrium. However, note that it is a weak Nash equilibrium, as any mixed strategy is the best response. This turns out to be true of any Nash equilibrium involving mixed strategies.</p>
-      <div class="notation-box">
-        <p>Symbolically, a mixed strategy Nash equilibrium is therefore defined as a mixed strategy profile $\alpha*$ such that for each player $i,$ we have $$U_i(\alpha_i*, \alpha_{-i}*) \ge U_i(\alpha_i, \alpha_{-i}*)$$ for all possible mixed strategies $\alpha_i.$ This is practically identical to the definition for a pure Nash equilibrium.
-        </p>
+
+      <div class="container">
+        <div class="graph-container" style="text-align:center">
+        <svg viewBox="-250 -100 1650 1500" class="w-50">
+            <!-- Grid lines -->
+            <g>
+                <!-- Vertical grid lines -->
+                <line class="grid-line" x1="200" y1="0" x2="200" y2="1200"></line>
+                <line class="grid-line" x1="400" y1="0" x2="400" y2="1200"></line>
+                <line class="grid-line" x1="600" y1="0" x2="600" y2="1200"></line>
+                <line class="grid-line" x1="800" y1="0" x2="800" y2="1200"></line>
+                <line class="grid-line" x1="1000" y1="0" x2="1000" y2="1200"></line>
+                
+                <!-- Horizontal grid lines -->
+                <line class="grid-line" x1="0" y1="200" x2="1200" y2="200"></line>
+                <line class="grid-line" x1="0" y1="400" x2="1200" y2="400"></line>
+                <line class="grid-line" x1="0" y1="600" x2="1200" y2="600"></line>
+                <line class="grid-line" x1="0" y1="800" x2="1200" y2="800"></line>
+                <line class="grid-line" x1="0" y1="1000" x2="1200" y2="1000"></line>
+            </g>
+  
+            <!-- Grid labels -->
+            <g>
+                <!-- X-axis labels -->
+                <text class="axis-label" x="300" y="1250" text-anchor="middle">0.25</text>
+                <text class="axis-label" x="600" y="1250" text-anchor="middle">0.5</text>
+                <text class="axis-label" x="900" y="1250" text-anchor="middle">0.75</text>
+                <text class="axis-label" x="1200" y="1250" text-anchor="middle">1</text>
+                
+                <!-- Y-axis labels -->
+                <text class="axis-label" x="-20" y="1220" text-anchor="end">0</text>
+                <text class="axis-label" x="-20" y="915" text-anchor="end">0.25</text>
+                <text class="axis-label" x="-20" y="615" text-anchor="end">0.5</text>
+                <text class="axis-label" x="-20" y="315" text-anchor="end">0.75</text>
+                <text class="axis-label" x="-20" y="15" text-anchor="end">1</text>
+            </g>
+  
+            <!-- Axes -->
+            <g>
+                <line class="axis" x1="0" y1="1200" x2="1200" y2="1200"></line>
+                <line class="axis" x1="0" y1="0" x2="0" y2="1200"></line>
+                <!-- Axis labels -->
+                <text class="axis-label" x="600" y="1350" text-anchor="middle">Archibald's p</text>
+                <text class="axis-label" x="-180" y="600" transform="rotate(-90, -180, 600)" text-anchor="middle">Beezleglorb's q</text>
+            </g>
+  
+            <!-- Interactive line segments -->
+            <g class="line-segments">
+                <line class="line-segment" 
+                      x1="0" y1="1200" 
+                      x2="0" y2="600" 
+                      stroke="#dc3545" 
+                      stroke-width="12"
+                      data-tooltip="Archibald's Best Response Curve"></line>
+
+                      
+                <line class="line-segment" 
+                      x1="1200" y1="600" 
+                      x2="0" y2="600" 
+                      stroke="#dc3545" 
+                      stroke-width="12"
+                      data-tooltip="Archibald's Best Response Curve"></line>
+                      
+                <line class="line-segment" 
+                      x1="1200" y1="600" 
+                      x2="1200" y2="0" 
+                      stroke="#dc3545" 
+                      stroke-width="12"
+                      data-tooltip="Archibald's Best Response Curve"></line>
+                
+                <line class="line-segment" 
+                      x1="0" y1="0" 
+                      x2="600" y2="0" 
+                      stroke="#007bff" 
+                      stroke-width="12"
+                      data-tooltip="Beezleglorb's Best Response Curve"></line>
+                <line class="line-segment" 
+                      x1="600" y1="0" 
+                      x2="600" y2="1200" 
+                      stroke="#007bff" 
+                      stroke-width="12"
+                      data-tooltip="Beezleglorb's Best Response Curve"></line>
+                <line class="line-segment" 
+                      x1="600" y1="1200" 
+                      x2="1200" y2="1200" 
+                      stroke="#007bff" 
+                      stroke-width="12"
+                      data-tooltip="Beezleglorb's Best Response Curve"></line>
+            </g>
+        </svg>
+        <div class="tooltip"></div>
+      </div>
     </div>
+      <p>
+        The only point of intersection is when both players assign 50-50 probabilities to the colors. In this sense, there actually is a Nash Equilibrium. However, note that it is a weak Nash equilibrium, as any mixed strategy is a best response to playing 50-50. This turns out to be true of any Nash equilibrium involving mixed strategies.
+      </p>
+      <div class="notation-box">
         <p>
-            Mixed strategies have various interpretations. In this game, they can represent probabilistic distributions over pure strategies. They can also represent the distribution of pure strategies within a population.
+          Symbolically, a mixed strategy Nash equilibrium is therefore defined
+          as a mixed strategy profile $\alpha*$ such that for each player $i,$
+          we have $$U_i(\alpha_i*, \alpha_{-i}*) \ge U_i(\alpha_i,
+          \alpha_{-i}*)$$ for all possible mixed strategies $\alpha_i.$ This is
+          practically identical to the definition for a pure Nash equilibrium.
         </p>
-        <p>You glance up at Beezleglorb and flip the coin out of their sight. Frustrated, they select a button at random, and so do you. You win.
-        </p>
-        <p>
-            Beezleglorb demands thousands of rematches. Ultimately, you win approximately 50% of them. You will sleep well tonight with a net loss of around zero dollars.
-        </p>
+      </div>
+      <p>
+        Mixed strategies have various interpretations. In this game, they can
+        represent probabilistic distributions over pure strategies. They can
+        also represent the distribution of pure strategies within a population.
+      </p>
+      <p>
+        You glance up at Beezleglorb and flip the coin out of their sight.
+        Frustrated, they select a button at random, and so do you. You win.
+      </p>
+      <p>
+        Beezleglorb demands thousands of rematches. Ultimately, you win
+        approximately 50% of them. You will sleep well tonight with a net loss
+        of around zero dollars.
+      </p>
       <div class="next-chapter-container">
         <span class="next-chapter-text">Next Chapter: Penalty Shoot-Out</span>
         <a href="{{root}}games/mixed/soccer/" class="next-chapter-button">

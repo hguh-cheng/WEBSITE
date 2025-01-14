@@ -1,6 +1,6 @@
 ---
 layout: gameslayout.html
-title: Games
+title: Game Theory
 subtitle: Nim
 root: ../../../
 ---
@@ -62,7 +62,10 @@ root: ../../../
       <p>
         The winning strategy utilizes a similar idea; this time, if the number
         of cookies in each pile is different, remove cookies from the larger
-        pile until they contain the same number of cookies.
+        pile until both piles contain the same number of cookies.
+      </p>
+      <p>
+        Due to the symmetry of the piles, Archibald's strategy of mirroring Cookie Monster's moves guarantees that Archibald will always have a valid move after any move Cookie Monster makes. Therefore, Cookie Monster can never be the last player to make a move in the game. So, Archibald will win with optimal play.
       </p>
       <p>
         In general, a player can win the game if, on their turn, the number of
@@ -89,13 +92,13 @@ root: ../../../
       <div id="section3" class="content-section">
         <p>Consider the bitwise XOR of all sizes of the piles.</p>
         <p>
-          If you’re unfamiliar with the bitwise XOR, here’s a brief
-          demonstration of how to calculate the 7 XOR 11 (for shorthand, we
+          If you’re unfamiliar with the bitwise XOR, suppose we had two piles; one with 7 cookies, and one with 11 cookies. Here’s a brief
+          demonstration of how to calculate 7 XOR 11 (for shorthand, we
           write $7 \oplus 11$):
         </p>
         <ol>
           <li>
-            Express $7$ and $11$ as binary, giving $0111$ and $1011$ (If
+            Express $7$ and $11$ in binary, giving $0111$ and $1011$ (If
             necessary, make them the same length by appending 0’s at the front
             of the shorter number).
           </li>
@@ -115,8 +118,13 @@ root: ../../../
           $0.$
         </p>
         <p>
-            Note that XOR satisfies commutativity ($a \oplus b = b \oplus a$) and associativity ( $(a \oplus b) \oplus c = a \oplus (b \oplus c) $). Additionally, $a \oplus a = 0.$ 
+            Note that XOR satisfies the following properties:
         </p>
+        <ul>
+          <li>$a \oplus b = b \oplus a$ (communativity)</li>
+          <li>$(a \oplus b) \oplus c = a \oplus (b \oplus c)$ (associativity)</li>
+          <li>$a \oplus a = 0$</li>
+        </ul>
         <p>
           For convenience, If there are $n$ piles, let $x_1, x_2, \dots, x_n$
           denote the $n$ pile sizes before a player’s turn, and let $y_1, y_2, \dots y_n$
@@ -129,8 +137,17 @@ root: ../../../
             \end{aligned}$$
         </p>
         <p>To prove that states with $s = 0$ are losing, we need to show that if $s = 0,$ then $t \neq 0.$ If $s = 0,$ then we in fact have $t = x_k \oplus y_k \neq 0$ since $x_k$ and $y_k$ must be different.</p>
-        <p>To prove that states with $s \neq 0$ are winning, we want to prove that there exists a certain $k$ such that subtracting some number of cookies from $x_k$ causes $t = 0.$ To find such a $k,$ consider the position $p$ of the leftmost bit of $s$ that is equal to $1.$ There must be a pile size $x_k$ such that the bit position $p$ is equal to $1.$ Then, consider $s \oplus x_k.$ Note that all bits to the left of position $p$ in $x_k$ remain unchanged, but the bit at position $p$ changes from a $1$ to a $0.$ Thus, we have $x_k > s \oplus x_k.$ So, making $y_k = s \oplus x_k$ is a valid move. However, note that $$\begin{aligned} t &= s \oplus x_k \oplus y_k \\ &= s \oplus x_k \oplus (s \oplus x_k) \\ &= 0, \end{aligned}$$ so there exists an optimal strategy in this position.
+        <p>To prove that states with $s \neq 0$ are winning, we want to prove that there exists a certain $k$ such that subtracting some number of cookies from $x_k$ causes $t = 0.$ To find such a $k,$ consider the position $p$ of the leftmost bit of $s$ that is equal to $1.$ There must be a pile size $x_k$ such that the bit position $p$ in the binary representation of $x_k$ is equal to $1.$ Then, consider $s \oplus x_k.$ Note that all bits to the left of position $p$ in $s \oplus x_k$ are the same as the bits to the left of position $p$ in $x_k$, but the bit at position $p$ changes from a $1$ to a $0.$ Thus, we have $x_k > s \oplus x_k.$ So, making $y_k = s \oplus x_k$ is a valid move. However, note that $$\begin{aligned} t &= s \oplus x_k \oplus y_k \\ &= s \oplus x_k \oplus (s \oplus x_k) \\ &= 0, \end{aligned}$$ so reducing the pile of size $x_k$ to size $s \oplus x_k$ is a winning strategy.
             </p>
+
+        <p>
+          For example, suppose we have three piles of sizes 3, 4, and 5 cookies. Then, we rewrite them in base 2, giving
+          $$\begin{align*} 3 &= 011_2 \\ 4 &= 100_2 \\ 5 &= 101_2 \end{align*}.$$
+          We hence compute $s = 3 \oplus 4 \oplus 5 = 2 \neq 0,$ so we are in a winning position.
+        </p>
+        <p>
+          For the winning strategy, we see that $s = 10_2,$ which has a 1 in the 2's place. The only pile that has a size with a 1 in the 2's place is the pile of size 3. Thus, we need to reduce this pile to size $3 \oplus 2 = 1.$ In other words, the winning move is to take two cookies from the pile with 3 cookies. Indeed, we compute $1 \oplus 4 \oplus 5 = 0.$
+        </p>
         <div class="next-chapter-container">
           <span class="next-chapter-text">Next Chapter: Tabletop</span>
           <a

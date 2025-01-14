@@ -1,6 +1,6 @@
 ---
 layout: gameslayout.html
-title: Games
+title: Game Theory
 subtitle: Prisoner's Dilemma
 root: ../../../
 ---
@@ -89,16 +89,22 @@ root: ../../../
             <p><span style="color: #78e470;">You decide to swindle,</span> you sneaky devil. Unfortunately, so does Bartholomew. But, as you and Bartholomew each somberly masticate your disappointing single cookies, you are fulfilled in knowing that you did the best you could given Bartholomew’s selfishness. Even if you both cooperated to receive more cookies, you would have regretted not swindling. You glance at Bartholomew, whose giddy face reveals that he shares your twisted glory.</p>
         </div>
         <p>
-            Paradoxically, this outcome is objectively worse than the outcome of mutual cooperation. Nonetheless, you have a feeling that it’s very important to analyze the outcomes of games where no player could have done better individually. You name your new concept the <b>Nash equilibrium,</b> fondly dedicated to your favorite basketball player.
+            Paradoxically, this outcome is objectively worse than the outcome of mutual cooperation. Nonetheless, you have a feeling that it’s very important to analyze the outcomes of games where no player could have done better individually. You name your new concept the Nash equilibrium, fondly dedicated to your favorite basketball player. You etch the following words into your doughy wall:
+        </p>
+
+        <p><i>I hereby define a <b>Nash equilibrium</b> as an outcome of a game where no player regrets their action.</i> -Archibald the Unexceptional, 2025</p>
+
+        <p>
+            We say that an action is a <b>best response</b> for a player if they could not have benefitted from switching to a different action, given everyone else's action.
         </p>
 
         <div class="notation-box">
             <p>
-                We say that the <b>best response</b> for a player $i$ to the actions $a_{-i}*$ of other players as an action $a_i*$ such that for every other $a_i \in A_i,$ we have $$u_i(a_i*, a_{-i}*) \ge u_i(a_i, a_{-i}*).$$ We define the Nash equilibrium as an action profile $a_i*$ where every player $i$ plays a best response $a*_i$ to $a*_{-i}.$ 
+                Symbolically, a <b>best response</b> for a player $i$ to the actions $a_{-i}*$ of other players as an action $a_i*$ such that for every other $a_i \in A_i,$ we have $$u_i(a_i*, a_{-i}*) \ge u_i(a_i, a_{-i}*).$$ We define the Nash equilibrium as an action profile $a_i*$ where every player $i$ plays a best response $a*_i$ to $a*_{-i}.$ 
             </p>
         </div>
 
-        <p>In fact, no matter what Bartholomew decided to do, swindling is always the best response. So, it makes sense that the Nash equilibrium occurs when both players play the unconditionally optimal strategy. In this case, we call cooperating a <b>strictly dominated strategy,</b> which means that there are no possible action profiles where it is the best response. However, finding equilibria won’t always be so obvious.
+        <p>In fact, no matter what Bartholomew decided to do, swindling would always be a best response for you. Symmetrically, swindling is always a best response for Bartholomew. So, it makes sense that the Nash equilibrium occurs when both players play a best response to each other, as by definition, neither of you would regret your action. Because cooperating is never a best response, we call it a <b>strictly dominated strategy.</b> Definitionally, strictly dominated strategies will never be played in a Nash equilibrium because there would be better options. However, finding equilibria won’t always be so obvious.
         </p>
         
         <p>In game theory and popular culture, this game is known as the <b>Prisoner’s Dilemma.</b> In the original problem, a prison guard incentivizes two criminal partners to testify against each other with decreased sentence length as the payoff. Variations of the same fundamental game have widespread applications in the real world. A commonly known example is the <b>Arms Race,</b> where swindling is analogous to stockpiling nuclear warheads and cooperation is analogous to reducing one's supply of warheads.</p>
